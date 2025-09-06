@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cd /usr/share/pipewire-proaudio-config/
+exec -a pipewire-proaudio-config python main.py
