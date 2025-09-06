@@ -75,6 +75,9 @@ class SystemSettingsWindow(Adw.ApplicationWindow):
         .status-off {
             background-color: @error_color;
         }
+        .status-unavailable {
+            background-color: @insensitive_fg_color;
+        }
         """
         provider.load_from_string(css)
         Gtk.StyleContext.add_provider_for_display(
@@ -227,28 +230,33 @@ class SystemSettingsWindow(Adw.ApplicationWindow):
         """Executes a script with the 'check' argument to get its current state.
         Returns True if the script's stdout is 'true', False otherwise."""
         if not os.path.exists(script_path):
+            msg = _("Unavailable: script not found.")
             print(_("Script not found: {}").format(script_path))
-            return False
+            return (None, msg)
 
         try:
             result = subprocess.run([script_path, "check"],
             capture_output=True,
             text=True,
             timeout=10)
-
             if result.returncode == 0:
                 output = result.stdout.strip().lower()
-                return output == "true"
+                if output == "true":
+                    return (True, _("Enabled"))
+                elif output == "false":
+                    return (False, _("Disabled"))
+                else:
+                    msg = _("Unavailable: script returned invalid output.")
+                    print(_("Invalid output from script {}: {}").format(script_path, result.stdout.strip()))
+                    return (None, msg)
             else:
+                msg = _("Unavailable: script returned an error.")
                 print(_("Error checking state: {}").format(result.stderr))
-                return False
-
-        except subprocess.TimeoutExpired:
-            print(_("Script timeout: {}").format(script_path))
-            return False
-        except Exception as e:
+                return (None, msg)
+        except (subprocess.TimeoutExpired, Exception) as e:
+            msg = _("Unavailable: failed to run script.")
             print(_("Error running script {}: {}").format(script_path, e))
-            return False
+            return (None, msg)
 
     def toggle_script_state(self, script_path, new_state):
         """Executes a script with the 'toggle' argument to change the system state.
@@ -261,9 +269,9 @@ class SystemSettingsWindow(Adw.ApplicationWindow):
         try:
             state_str = "true" if new_state else "false"
             result = subprocess.run([script_path, "toggle", state_str],
-                                capture_output=True,
-                                text=True,
-                                timeout=30)
+            capture_output=True,
+            text=True,
+            timeout=30)
 
             if result.returncode == 0:
                 print(_("State changed successfully"))
@@ -293,36 +301,45 @@ class SystemSettingsWindow(Adw.ApplicationWindow):
             return False
 
     def sync_all_switches(self):
-        """Synchronizes all UI widgets (switches and indicators) with the
-        actual system state by calling their respective check scripts."""
+        """Synchronizes all UI widgets and disables them if their script is invalid, providing a tooltip with the reason."""
         # Sync all switches
         for switch, script_path in self.switch_scripts.items():
-            # Block the 'state-set' signal to prevent the callback from firing
-            # during this programmatic state change.
-            switch.handler_block_by_func(self.on_switch_changed)
+            row = switch.get_parent()
+            status, message = self.check_script_state(script_path)
 
-            current_state = self.check_script_state(script_path)
-            switch.set_active(current_state)
-
-            # Unblock the signal
-            switch.handler_unblock_by_func(self.on_switch_changed)
-
-            script_name = os.path.basename(script_path)
-            print(_("Switch {} synchronized: {}").format(script_name, current_state))
+            if status is None:
+                row.set_sensitive(False)
+                row.set_tooltip_text(message)
+            else:
+                row.set_sensitive(True)
+                row.set_tooltip_text(None)
+                switch.handler_block_by_func(self.on_switch_changed)
+                switch.set_active(status)
+                switch.handler_unblock_by_func(self.on_switch_changed)
+            print(_("Switch {} synchronized: {}").format(os.path.basename(script_path), status))
 
         # Sync all status indicators
         for indicator, script_path in self.status_indicators.items():
-            current_state = self.check_script_state(script_path)
+            row = indicator.get_parent()
+            status, message = self.check_script_state(script_path)
 
-            # Clean up old classes before adding the new one
+            # Always remove all state classes first to ensure a clean slate
             indicator.remove_css_class("status-on")
             indicator.remove_css_class("status-off")
+            indicator.remove_css_class("status-unavailable")
 
-            if current_state:
-                indicator.add_css_class("status-on")
+            if status is None:
+                row.set_sensitive(False)
+                row.set_tooltip_text(message)
+                indicator.add_css_class("status-unavailable")
             else:
-                indicator.add_css_class("status-off")
-            print(_("Indicator {} synchronized: {}").format(os.path.basename(script_path), current_state))
+                row.set_sensitive(True)
+                row.set_tooltip_text(None)
+                if status:
+                    indicator.add_css_class("status-on")
+                else:
+                    indicator.add_css_class("status-off")
+            print(_("Indicator {} synchronized: {}").format(os.path.basename(script_path), status))
 
     def on_switch_changed(self, switch, state):
         """Callback executed when a user manually toggles a switch."""
