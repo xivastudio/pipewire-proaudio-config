@@ -209,6 +209,13 @@ class SystemSettingsWindow(Adw.ApplicationWindow):
             _("Warning: Using mitigations=off will make your machine less secure! Use with caution! For more information on the risks see https://meltdownattack.com"),
             "meltdownMitigations"
         )
+        # Kernel Threadirqs
+        self.kernelThreadirqs_switch = self.create_switch_with_script(
+            group,
+            _("IRQ Forced Threading"),
+            _("Warning: If you do not know what this is and/or are not sure, DO NOT enable this feature."),
+            "kernelThreadirqs"
+        )
 
     # def create_example_group(self, parent):
     #     # Grupo de exemplo
