@@ -155,7 +155,7 @@ class SystemSettingsWindow(Adw.ApplicationWindow):
         parent_group.add(row)
         return indicator
 
-    # Função para criar um switch com uma área de detalhes expansível e link clicável.
+    # Function to create a switch with a details area and clickable link.
     def create_row_with_clickable_link(self, parent_group, title, subtitle_with_markup, script_name):
         """Builds a custom row mimicking Adw.ActionRow to allow for a clickable link in the subtitle."""
         # Usa Adw.PreferencesRow como base para obter o estilo de fundo e borda corretos.
@@ -188,7 +188,7 @@ class SystemSettingsWindow(Adw.ApplicationWindow):
         switch = Gtk.Switch(valign=Gtk.Align.CENTER)
         main_box.append(switch)
 
-        # Associa o script ao switch
+        # Associate the script with the switch
         script_group = getattr(parent_group, 'script_group', 'default')
         script_path = os.path.join(script_group, f"{script_name}.sh")
         self.switch_scripts[switch] = script_path
