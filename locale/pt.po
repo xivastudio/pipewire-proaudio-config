@@ -83,7 +83,7 @@ msgstr ""
 # 
 # File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 251
 msgid "noWatchdog"
-msgstr "semMonitor"
+msgstr "noWatchdog"
 # 
 # File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 252
 msgid ""
