@@ -87,11 +87,13 @@ jobs:
 
       - name: Set package info
         run: |
-          PKG_NAME=$(grep "^pkgname=" PKGBUILD.txt | cut -d'=' -f2)
-          PKG_DESC=$(grep "^pkgdesc=" PKGBUILD.txt | cut -d'"' -f2)
+          gitfolder=$(find -type f -name PKGBUILD | sed 's/PKGBUILD//')
+          cd $gitfolder
+          PKG_NAME=$(grep "^pkgname=" PKGBUILD | cut -d'=' -f2)
+          PKG_DESC=$(grep "^pkgdesc=" PKGBUILD | cut -d'"' -f2)
           PKG_VERSION=$(date +%y.%m.%d)
           PKG_RELEASE=$(date +%H%M)
-          MAINTAINER=$(grep "^# Maintainer:" PKGBUILD.txt | sed 's/# Maintainer: //' | cut -d'<' -f1 | xargs)
+          MAINTAINER=$(grep "^# Maintainer:" PKGBUILD | sed 's/# Maintainer: //' | cut -d'<' -f1 | xargs)
 
           echo "PKG_NAME=$PKG_NAME" >> $GITHUB_ENV
           echo "PKG_DESC=$PKG_DESC" >> $GITHUB_ENV
