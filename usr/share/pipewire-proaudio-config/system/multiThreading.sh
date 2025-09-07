@@ -6,7 +6,7 @@ check_state() {
     echo ""
   elif [[ "$(cat /sys/devices/system/cpu/smt/control)" == "off" ]];then
     echo "true"
-  else
+  elif [[ "$(cat /sys/devices/system/cpu/smt/control)" == "on" ]];then
     echo "false"
   fi
 }

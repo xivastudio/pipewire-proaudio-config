@@ -2,7 +2,9 @@
 
 # check current status
 check_state() {
-  if [[ "$(powerprofilesctl get)" == "performance" ]];then
+  if [[ -z "$(powerprofilesctl get)" ]];then
+    echo ""
+  elif [[ "$(powerprofilesctl get)" == "performance" ]];then
     echo "true"
   else
     echo "false"
