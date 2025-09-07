@@ -1,0 +1,224 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the pipewire-proaudio-config package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: pipewire-proaudio-config\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: attranslate\n"
+msgid "Applying, please wait..."
+msgstr "Toepassen, even geduld..."
+msgid ""
+"GRUB updated successfully!\\n"
+"Restart your computer for it to take effect."
+msgstr ""
+"GRUB succesvol bijgewerkt!\\n"
+"Herstart uw computer om de wijzigingen door te voeren."
+msgid "An error occurred while updating GRUB."
+msgstr "Er is een fout opgetreden tijdens het bijwerken van GRUB."
+msgid "Already disabled. No changes made."
+msgstr "Alreeds uitgeschakeld. Geen wijzigingen aangebracht."
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 49
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 98
+msgid "PipeWire ProAudio Config"
+msgstr "PipeWire ProAudio Configuratie"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 203
+msgid "Checks"
+msgstr "Controleert"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 205
+msgid "ProAudio Checks"
+msgstr "ProAudio Controles"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 212
+msgid "Reload all statuses"
+msgstr "Herlaad alle statussen"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 220
+msgid "Kernel Low Latency"
+msgstr "Kernel Lage Latentie"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 221
+msgid "Check if the kernel configuration has lowlatency enabled"
+msgstr "Controleer of de kernelconfiguratie lowlatency is ingeschakeld."
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 228
+msgid "System"
+msgstr "Systeem"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 230
+msgid "ProAudio System Settings"
+msgstr "ProAudio Systeeminstellingen"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 236
+msgid "CPU Performance Power Profile"
+msgstr "CPU-prestaties energieprofiel"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 237
+msgid "Turn on CPU performance power profile."
+msgstr "Zet het CPU-prestatie-energieprofiel aan."
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 244
+msgid "Meltdown Mitigations off"
+msgstr "Meltdown-mitigaties uit"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 245
+#, python-brace-format
+msgid ""
+"Warning: Using mitigations=off will make your machine less secure! For more information see: <a "
+"href='{link}'>{link}</a>"
+msgstr ""
+"Waarschuwing: Het uitschakelen van mitigaties maakt uw machine minder veilig! Voor meer informatie "
+"zie: <a href='{link}'>{link}</a>"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 251
+msgid "noWatchdog"
+msgstr "geenToezichthond"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 252
+msgid ""
+"Disables the hardware watchdog and TSC clocksource systems, maintaining high performance but "
+"removing automatic protections against system crashes."
+msgstr ""
+"Schakelt de hardware-watcher en TSC-klokbronnen uit, behoudt hoge prestaties maar verwijdert "
+"automatische bescherming tegen systeemcrashes."
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 258
+msgid "IRQ Forced Threading"
+msgstr "IRQ Gedwongen Draadverwerking"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 259
+msgid "Warning: If you do not know what this is and/or are not sure, DO NOT enable this feature."
+msgstr "Waarschuwing: Als u niet weet wat dit is en/of niet zeker bent, SCHAKEL deze functie DAN NIET IN."
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 266
+msgid "Multi/Hyper Threading OFF"
+msgstr "Multi/Hypersimultaanheid UIT"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 267
+#, python-brace-format
+msgid ""
+"Simultaneous Multithreading (SMT) or hyperthreading can cause spikes in DSP load at higher DSP "
+"loads.\n"
+"It can improve single-task performance, but it can worsen multitasking and other programs, so use "
+"it wisely.\n"
+"<a href='{link}'>{link}</a>"
+msgstr ""
+"Gelijktijdige multithreading (SMT) of hyperthreading kan pieken in de DSP-belasting veroorzaken bij "
+"hogere DSP-belastingen. Het kan de prestaties van enkele taken verbeteren, maar het kan "
+"multitasking en andere programma's verslechteren, dus gebruik het verstandig. <a "
+"href='{link}'>{link}</a>"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 273
+msgid "User in Audio Group"
+msgstr "Gebruiker in Audiogroep"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 274
+msgid ""
+"It is generally good practice to have an audio group, and add any users that should be allowed to "
+"perform audio tasks to this group."
+msgstr ""
+"Het is over het algemeen een goede gewoonte om een audiogroep te hebben en alle gebruikers die "
+"audio-taken mogen uitvoeren aan deze groep toe te voegen."
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 280
+msgid "Disable Wifi"
+msgstr "Schakel Wifi uit"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 281
+msgid ""
+"NetworkManager keeps scanning for new wireless networks in the background and this might cause "
+"xruns. The best option is to not use a wireless network in a low-latency real-time audio "
+"environment."
+msgstr ""
+"NetworkManager blijft op de achtergrond scannen naar nieuwe draadloze netwerken en dit kan xruns "
+"veroorzaken. De beste optie is om geen draadloos netwerk te gebruiken in een low-latency real-time "
+"audio omgeving."
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 289
+msgid "Unavailable: script not found."
+msgstr "Niet beschikbaar: script niet gevonden."
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 290
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 321
+msgid "Script not found: {}"
+msgstr "Script niet gevonden: {}"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 301
+msgid "Enabled"
+msgstr "Ingeschakeld"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 303
+msgid "Disabled"
+msgstr "Uitgeschakeld"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 305
+msgid "Unavailable: script returned invalid output."
+msgstr "Niet beschikbaar: script gaf ongeldige uitvoer terug."
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 306
+msgid "Invalid output from script {}: {}"
+msgstr "Ongeldige uitvoer van script {}: {}"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 309
+msgid "Unavailable: script returned an error."
+msgstr "Niet beschikbaar: script heeft een fout geretourneerd."
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 310
+msgid "Error checking state: {}"
+msgstr "Fout controleer status: {}"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 313
+msgid "Unavailable: failed to run script."
+msgstr "Niet beschikbaar: script kon niet worden uitgevoerd."
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 314
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 355
+msgid "Error running script {}: {}"
+msgstr "Fout bij het uitvoeren van script {}: {}"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 333
+msgid "State changed successfully"
+msgstr "Status succesvol gewijzigd"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 335
+msgid "Script output: {}"
+msgstr "{}"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 339
+msgid "Script failed with exit code: {}"
+msgstr "Script is mislukt met exitcode: {}"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 351
+msgid "Script timeout: {}"
+msgstr "Script time-out: {}"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 375
+msgid "Switch {} synchronized: {}"
+msgstr "Schakel {} gesynchroniseerd: {}"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 398
+msgid "Indicator {} synchronized: {}"
+msgstr "Indicator {} gesynchroniseerd: {}"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 406
+msgid "Changing {} to {}"
+msgstr "Veranderen van {} naar {}"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 419
+msgid "ERROR: Failed to change {} to {}"
+msgstr "FOUT: Kon {} niet wijzigen naar {}"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 420
+msgid "Failed to change setting: {}"
+msgstr "Instelling wijzigen mislukt: {}"

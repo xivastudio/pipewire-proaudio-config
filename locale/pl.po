@@ -1,0 +1,223 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the pipewire-proaudio-config package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: pipewire-proaudio-config\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: attranslate\n"
+msgid "Applying, please wait..."
+msgstr "Zastosowywanie, proszę czekać..."
+msgid ""
+"GRUB updated successfully!\\n"
+"Restart your computer for it to take effect."
+msgstr ""
+"GRUB zaktualizowany pomyślnie!\\n"
+"Uruchom ponownie komputer, aby zmiany zaczęły obowiązywać."
+msgid "An error occurred while updating GRUB."
+msgstr "Wystąpił błąd podczas aktualizacji GRUB."
+msgid "Already disabled. No changes made."
+msgstr "Już wyłączone. Nie wprowadzono żadnych zmian."
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 49
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 98
+msgid "PipeWire ProAudio Config"
+msgstr "Konfiguracja ProAudio PipeWire"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 203
+msgid "Checks"
+msgstr "Kontrole"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 205
+msgid "ProAudio Checks"
+msgstr "ProAudio Kontrole"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 212
+msgid "Reload all statuses"
+msgstr "Przeładuj wszystkie statusy"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 220
+msgid "Kernel Low Latency"
+msgstr "Jądro o niskiej latencji"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 221
+msgid "Check if the kernel configuration has lowlatency enabled"
+msgstr "Sprawdź, czy konfiguracja jądra ma włączoną niską latencję."
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 228
+msgid "System"
+msgstr "System"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 230
+msgid "ProAudio System Settings"
+msgstr "Ustawienia systemu ProAudio"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 236
+msgid "CPU Performance Power Profile"
+msgstr "Profil mocy wydajności CPU"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 237
+msgid "Turn on CPU performance power profile."
+msgstr "Włącz profil wydajności zasilania CPU."
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 244
+msgid "Meltdown Mitigations off"
+msgstr "Mitigacje Meltdown wyłączone"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 245
+#, python-brace-format
+msgid ""
+"Warning: Using mitigations=off will make your machine less secure! For more information see: <a "
+"href='{link}'>{link}</a>"
+msgstr ""
+"Ostrzeżenie: Użycie mitigations=off sprawi, że twoja maszyna będzie mniej bezpieczna! Aby uzyskać "
+"więcej informacji, zobacz: <a href='{link}'>{link}</a>"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 251
+msgid "noWatchdog"
+msgstr "brakNadzoru"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 252
+msgid ""
+"Disables the hardware watchdog and TSC clocksource systems, maintaining high performance but "
+"removing automatic protections against system crashes."
+msgstr ""
+"Wyłącza systemy sprzętowego watchdog i źródła zegara TSC, utrzymując wysoką wydajność, ale usuwając "
+"automatyczne zabezpieczenia przed awariami systemu."
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 258
+msgid "IRQ Forced Threading"
+msgstr "Wymuszone wątkowanie IRQ"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 259
+msgid "Warning: If you do not know what this is and/or are not sure, DO NOT enable this feature."
+msgstr "Ostrzeżenie: Jeśli nie wiesz, co to jest i/lub nie jesteś pewien, NIE włączaj tej funkcji."
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 266
+msgid "Multi/Hyper Threading OFF"
+msgstr "Wielowątkowość/Hiperwątkowość WYŁĄCZONA"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 267
+#, python-brace-format
+msgid ""
+"Simultaneous Multithreading (SMT) or hyperthreading can cause spikes in DSP load at higher DSP "
+"loads.\n"
+"It can improve single-task performance, but it can worsen multitasking and other programs, so use "
+"it wisely.\n"
+"<a href='{link}'>{link}</a>"
+msgstr ""
+"Jednoczesne wielowątkowanie (SMT) lub hiperwątkowanie mogą powodować skoki obciążenia DSP przy "
+"wyższych obciążeniach DSP. Może poprawić wydajność pojedynczego zadania, ale może pogorszyć "
+"wielozadaniowość i inne programy, więc używaj go mądrze. <a href='{link}'>{link}</a>"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 273
+msgid "User in Audio Group"
+msgstr "Użytkownik w grupie audio"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 274
+msgid ""
+"It is generally good practice to have an audio group, and add any users that should be allowed to "
+"perform audio tasks to this group."
+msgstr ""
+"Ogólnie dobrą praktyką jest utworzenie grupy audio i dodanie do niej wszystkich użytkowników, "
+"którzy powinni mieć możliwość wykonywania zadań audio."
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 280
+msgid "Disable Wifi"
+msgstr "Wyłącz Wi-Fi"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 281
+msgid ""
+"NetworkManager keeps scanning for new wireless networks in the background and this might cause "
+"xruns. The best option is to not use a wireless network in a low-latency real-time audio "
+"environment."
+msgstr ""
+"NetworkManager ciągle skanuje w tle w poszukiwaniu nowych sieci bezprzewodowych, co może powodować "
+"xruns. Najlepszą opcją jest unikanie korzystania z sieci bezprzewodowej w środowisku audio o niskim "
+"opóźnieniu w czasie rzeczywistym."
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 289
+msgid "Unavailable: script not found."
+msgstr "Niedostępne: skrypt nie został znaleziony."
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 290
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 321
+msgid "Script not found: {}"
+msgstr "Skrypt nie został znaleziony: {}"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 301
+msgid "Enabled"
+msgstr "Włączone"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 303
+msgid "Disabled"
+msgstr "Wyłączone"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 305
+msgid "Unavailable: script returned invalid output."
+msgstr "Niedostępne: skrypt zwrócił nieprawidłowy wynik."
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 306
+msgid "Invalid output from script {}: {}"
+msgstr "Nieprawidłowe wyjście ze skryptu {}: {}"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 309
+msgid "Unavailable: script returned an error."
+msgstr "Niedostępne: skrypt zwrócił błąd."
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 310
+msgid "Error checking state: {}"
+msgstr "Błąd sprawdzania stanu: {}"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 313
+msgid "Unavailable: failed to run script."
+msgstr "Niedostępne: nie udało się uruchomić skryptu."
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 314
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 355
+msgid "Error running script {}: {}"
+msgstr "Błąd podczas uruchamiania skryptu {}: {}"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 333
+msgid "State changed successfully"
+msgstr "Stan zmieniony pomyślnie"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 335
+msgid "Script output: {}"
+msgstr "{}"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 339
+msgid "Script failed with exit code: {}"
+msgstr "Skrypt zakończył się niepowodzeniem z kodem wyjścia: {}"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 351
+msgid "Script timeout: {}"
+msgstr "Przekroczenie limitu czasu skryptu: {}"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 375
+msgid "Switch {} synchronized: {}"
+msgstr "Przełącz {} zsynchronizowane: {}"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 398
+msgid "Indicator {} synchronized: {}"
+msgstr "Wskaźnik {} zsynchronizowany: {}"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 406
+msgid "Changing {} to {}"
+msgstr "Zmiana {} na {}"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 419
+msgid "ERROR: Failed to change {} to {}"
+msgstr "BŁĄD: Nie udało się zmienić {} na {}"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 420
+msgid "Failed to change setting: {}"
+msgstr "Nie udało się zmienić ustawienia: {}"

@@ -1,0 +1,223 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the pipewire-proaudio-config package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: pipewire-proaudio-config\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: attranslate\n"
+msgid "Applying, please wait..."
+msgstr "Alkalmazás folyamatban, kérem várjon..."
+msgid ""
+"GRUB updated successfully!\\n"
+"Restart your computer for it to take effect."
+msgstr ""
+"A GRUB sikeresen frissítve lett!\\n"
+"Indítsa újra a számítógépét, hogy érvénybe lépjen."
+msgid "An error occurred while updating GRUB."
+msgstr "Hiba történt a GRUB frissítésekor."
+msgid "Already disabled. No changes made."
+msgstr "Már le van tiltva. Nincsenek változtatások."
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 49
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 98
+msgid "PipeWire ProAudio Config"
+msgstr "PipeWire ProAudio Beállítás"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 203
+msgid "Checks"
+msgstr "Ellenőrzések"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 205
+msgid "ProAudio Checks"
+msgstr "ProAudio Ellenőrzések"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 212
+msgid "Reload all statuses"
+msgstr "Minden állapot újratöltése"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 220
+msgid "Kernel Low Latency"
+msgstr "Kernel Alacsony Késleltetés"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 221
+msgid "Check if the kernel configuration has lowlatency enabled"
+msgstr "Ellenőrizze, hogy a kernel konfigurációja engedélyezte-e az alacsony késleltetést."
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 228
+msgid "System"
+msgstr "Rendszer"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 230
+msgid "ProAudio System Settings"
+msgstr "ProAudio Rendszerbeállítások"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 236
+msgid "CPU Performance Power Profile"
+msgstr "CPU Teljesítmény Energiagazdálkodási Profil"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 237
+msgid "Turn on CPU performance power profile."
+msgstr "Kapcsolja be a CPU teljesítmény teljesítményprofilját."
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 244
+msgid "Meltdown Mitigations off"
+msgstr "Meltdown mérséklések kikapcsolva"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 245
+#, python-brace-format
+msgid ""
+"Warning: Using mitigations=off will make your machine less secure! For more information see: <a "
+"href='{link}'>{link}</a>"
+msgstr ""
+"Figyelem: A mitigations=off használata csökkenti a gépe biztonságát! További információért lásd: <a "
+"href='{link}'>{link}</a>"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 251
+msgid "noWatchdog"
+msgstr "nincsFelügyelő"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 252
+msgid ""
+"Disables the hardware watchdog and TSC clocksource systems, maintaining high performance but "
+"removing automatic protections against system crashes."
+msgstr ""
+"Letiltja a hardveres felügyeletet és a TSC óraforrást, megőrizve a magas teljesítményt, de "
+"eltávolítva az automatikus védelmet a rendszerösszeomlások ellen."
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 258
+msgid "IRQ Forced Threading"
+msgstr "IRQ Kényszerített Szálkezelés"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 259
+msgid "Warning: If you do not know what this is and/or are not sure, DO NOT enable this feature."
+msgstr "Figyelem: Ha nem tudja, mi ez, és/vagy nem biztos benne, NE aktiválja ezt a funkciót."
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 266
+msgid "Multi/Hyper Threading OFF"
+msgstr "Multi/Hiper Szálazás KI"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 267
+#, python-brace-format
+msgid ""
+"Simultaneous Multithreading (SMT) or hyperthreading can cause spikes in DSP load at higher DSP "
+"loads.\n"
+"It can improve single-task performance, but it can worsen multitasking and other programs, so use "
+"it wisely.\n"
+"<a href='{link}'>{link}</a>"
+msgstr ""
+"A párhuzamos szálkezelés (SMT) vagy a hyperthreading a DSP terhelés csúcsait okozhatja magasabb DSP "
+"terhelések esetén. Javíthatja az egyfeladatos teljesítményt, de ronthatja a többfeladatos működést "
+"és más programokat, ezért használja bölcsen. <a href='{link}'>{link}</a>"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 273
+msgid "User in Audio Group"
+msgstr "Felhasználó az Audio Csoportban"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 274
+msgid ""
+"It is generally good practice to have an audio group, and add any users that should be allowed to "
+"perform audio tasks to this group."
+msgstr ""
+"Általában jó gyakorlat, ha van egy audio csoport, és hozzáadjuk azokat a felhasználókat, akiknek "
+"engedélyezni kell az audio feladatok végrehajtását ebbe a csoportba."
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 280
+msgid "Disable Wifi"
+msgstr "Wifi kikapcsolása"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 281
+msgid ""
+"NetworkManager keeps scanning for new wireless networks in the background and this might cause "
+"xruns. The best option is to not use a wireless network in a low-latency real-time audio "
+"environment."
+msgstr ""
+"A NetworkManager folyamatosan keres új vezeték nélküli hálózatokat a háttérben, ami xrunt okozhat. "
+"A legjobb megoldás, ha nem használ vezeték nélküli hálózatot alacsony késleltetésű valós idejű "
+"audio környezetben."
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 289
+msgid "Unavailable: script not found."
+msgstr "Nem elérhető: a szkript nem található."
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 290
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 321
+msgid "Script not found: {}"
+msgstr "A szkript nem található: {}"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 301
+msgid "Enabled"
+msgstr "Engedélyezve"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 303
+msgid "Disabled"
+msgstr "Letiltva"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 305
+msgid "Unavailable: script returned invalid output."
+msgstr "Nem elérhető: a szkript érvénytelen kimenetet adott vissza."
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 306
+msgid "Invalid output from script {}: {}"
+msgstr "Érvénytelen kimenet a következő szkripttől {}: {}"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 309
+msgid "Unavailable: script returned an error."
+msgstr "Nem elérhető: a szkript hibaüzenetet adott vissza."
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 310
+msgid "Error checking state: {}"
+msgstr "Hibaellenőrzési állapot: {}"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 313
+msgid "Unavailable: failed to run script."
+msgstr "Nem elérhető: a szkript futtatása nem sikerült."
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 314
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 355
+msgid "Error running script {}: {}"
+msgstr "Hiba a szkript futtatása közben {}: {}"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 333
+msgid "State changed successfully"
+msgstr "Állapot sikeresen megváltozott"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 335
+msgid "Script output: {}"
+msgstr "{}"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 339
+msgid "Script failed with exit code: {}"
+msgstr "A szkript hibával leállt a következő kóddal: {}"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 351
+msgid "Script timeout: {}"
+msgstr "Script időtúllépés: {}"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 375
+msgid "Switch {} synchronized: {}"
+msgstr "Váltás {} szinkronizált: {}"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 398
+msgid "Indicator {} synchronized: {}"
+msgstr "A {} szinkronizálva: {}"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 406
+msgid "Changing {} to {}"
+msgstr "A {} átkonvertálása {}-ra."
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 419
+msgid "ERROR: Failed to change {} to {}"
+msgstr "HIBA: A {}-t {}-ra nem sikerült megváltoztatni."
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 420
+msgid "Failed to change setting: {}"
+msgstr "A beállítás módosítása nem sikerült: {}"

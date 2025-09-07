@@ -1,0 +1,226 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the pipewire-proaudio-config package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: pipewire-proaudio-config\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: attranslate\n"
+msgid "Applying, please wait..."
+msgstr "Εφαρμογή, παρακαλώ περιμένετε..."
+msgid ""
+"GRUB updated successfully!\\n"
+"Restart your computer for it to take effect."
+msgstr ""
+"Ο GRUB ενημερώθηκε με επιτυχία!\\n"
+"Επανεκκινήστε τον υπολογιστή σας για να ισχύσει."
+msgid "An error occurred while updating GRUB."
+msgstr "Παρουσιάστηκε σφάλμα κατά την ενημέρωση του GRUB."
+msgid "Already disabled. No changes made."
+msgstr "Ήδη απενεργοποιημένο. Δεν έγιναν αλλαγές."
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 49
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 98
+msgid "PipeWire ProAudio Config"
+msgstr "Ρυθμίσεις ProAudio PipeWire"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 203
+msgid "Checks"
+msgstr "Έλεγχοι"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 205
+msgid "ProAudio Checks"
+msgstr "Ελέγχοι ProAudio"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 212
+msgid "Reload all statuses"
+msgstr "Επαναφόρτωση όλων των καταστάσεων"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 220
+msgid "Kernel Low Latency"
+msgstr "Πυρήνας Χαμηλής Καθυστέρησης"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 221
+msgid "Check if the kernel configuration has lowlatency enabled"
+msgstr "Ελέγξτε αν η ρύθμιση του πυρήνα έχει ενεργοποιημένη τη χαμηλή καθυστέρηση."
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 228
+msgid "System"
+msgstr "Σύστημα"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 230
+msgid "ProAudio System Settings"
+msgstr "Ρυθμίσεις Συστήματος ProAudio"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 236
+msgid "CPU Performance Power Profile"
+msgstr "Προφίλ Ικανότητας Επεξεργαστή CPU"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 237
+msgid "Turn on CPU performance power profile."
+msgstr "Ενεργοποιήστε το προφίλ απόδοσης επεξεργαστή."
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 244
+msgid "Meltdown Mitigations off"
+msgstr "Απενεργοποίηση μετριασμών Meltdown"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 245
+#, python-brace-format
+msgid ""
+"Warning: Using mitigations=off will make your machine less secure! For more information see: <a "
+"href='{link}'>{link}</a>"
+msgstr ""
+"Προειδοποίηση: Η χρήση του mitigations=off θα κάνει τη μηχανή σας λιγότερο ασφαλή! Για περισσότερες "
+"πληροφορίες δείτε: <a href='{link}'>{link}</a>"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 251
+msgid "noWatchdog"
+msgstr "χωρίςΕπιτήρηση"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 252
+msgid ""
+"Disables the hardware watchdog and TSC clocksource systems, maintaining high performance but "
+"removing automatic protections against system crashes."
+msgstr ""
+"Απενεργοποιεί τα συστήματα παρακολούθησης υλικού και πηγής ρολογιού TSC, διατηρώντας υψηλή απόδοση "
+"αλλά αφαιρώντας τις αυτόματες προστασίες κατά των κρασαρισμάτων του συστήματος."
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 258
+msgid "IRQ Forced Threading"
+msgstr "IRQ Αναγκαστική Νήματοποιία"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 259
+msgid "Warning: If you do not know what this is and/or are not sure, DO NOT enable this feature."
+msgstr ""
+"Προειδοποίηση: Εάν δεν γνωρίζετε τι είναι αυτό και/ή δεν είστε σίγουροι, ΜΗΝ ενεργοποιήσετε αυτή τη "
+"δυνατότητα."
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 266
+msgid "Multi/Hyper Threading OFF"
+msgstr "Πολυνηματική/Υπερνηματική ΑΠΕΝΕΡΓΟΠΟΙΗΜΕΝΗ"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 267
+#, python-brace-format
+msgid ""
+"Simultaneous Multithreading (SMT) or hyperthreading can cause spikes in DSP load at higher DSP "
+"loads.\n"
+"It can improve single-task performance, but it can worsen multitasking and other programs, so use "
+"it wisely.\n"
+"<a href='{link}'>{link}</a>"
+msgstr ""
+"Η ταυτόχρονη πολυνηματική επεξεργασία (SMT) ή η υπερνηματοδότηση μπορεί να προκαλέσει αιχμές στο "
+"φορτίο DSP σε υψηλότερα φορτία DSP. Μπορεί να βελτιώσει την απόδοση σε μεμονωμένες εργασίες, αλλά "
+"μπορεί να επιδεινώσει την πολυδιεργασία και άλλα προγράμματα, οπότε χρησιμοποιήστε την με σύνεση. "
+"<a href='{link}'>{link}</a>"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 273
+msgid "User in Audio Group"
+msgstr "Χρήστης στην Ομάδα Ήχου"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 274
+msgid ""
+"It is generally good practice to have an audio group, and add any users that should be allowed to "
+"perform audio tasks to this group."
+msgstr ""
+"Είναι γενικά καλή πρακτική να έχετε μια ομάδα ήχου και να προσθέτετε οποιουσδήποτε χρήστες θα "
+"πρέπει να επιτρέπεται να εκτελούν εργασίες ήχου σε αυτήν την ομάδα."
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 280
+msgid "Disable Wifi"
+msgstr "Απενεργοποίηση Wifi"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 281
+msgid ""
+"NetworkManager keeps scanning for new wireless networks in the background and this might cause "
+"xruns. The best option is to not use a wireless network in a low-latency real-time audio "
+"environment."
+msgstr ""
+"Ο NetworkManager συνεχίζει να σαρώνει για νέα ασύρματα δίκτυα στο παρασκήνιο και αυτό μπορεί να "
+"προκαλέσει xruns. Η καλύτερη επιλογή είναι να μην χρησιμοποιείτε ασύρματο δίκτυο σε περιβάλλον ήχου "
+"χαμηλής καθυστέρησης σε πραγματικό χρόνο."
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 289
+msgid "Unavailable: script not found."
+msgstr "Μη διαθέσιμο: δεν βρέθηκε σενάριο."
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 290
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 321
+msgid "Script not found: {}"
+msgstr "Το σενάριο δεν βρέθηκε: {}"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 301
+msgid "Enabled"
+msgstr "Ενεργοποιημένο"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 303
+msgid "Disabled"
+msgstr "Απενεργοποιημένο"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 305
+msgid "Unavailable: script returned invalid output."
+msgstr "Μη διαθέσιμο: το σενάριο επέστρεψε μη έγκυρη έξοδο."
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 306
+msgid "Invalid output from script {}: {}"
+msgstr "Μη έγκυρη έξοδος από το σενάριο {}: {}"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 309
+msgid "Unavailable: script returned an error."
+msgstr "Μη διαθέσιμο: το σενάριο επέστρεψε σφάλμα."
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 310
+msgid "Error checking state: {}"
+msgstr "Έλεγχος σφάλματος κατάστασης: {}"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 313
+msgid "Unavailable: failed to run script."
+msgstr "Μη διαθέσιμο: απέτυχε να εκτελέσει το σενάριο."
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 314
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 355
+msgid "Error running script {}: {}"
+msgstr "Σφάλμα κατά την εκτέλεση του σεναρίου {}: {}"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 333
+msgid "State changed successfully"
+msgstr "Η κατάσταση άλλαξε με επιτυχία"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 335
+msgid "Script output: {}"
+msgstr "{}"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 339
+msgid "Script failed with exit code: {}"
+msgstr "Το σενάριο απέτυχε με κωδικό εξόδου: {}"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 351
+msgid "Script timeout: {}"
+msgstr "Λήξη χρόνου εκτέλεσης σεναρίου: {}"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 375
+msgid "Switch {} synchronized: {}"
+msgstr "Αλλαγή {} συγχρονισμένο: {}"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 398
+msgid "Indicator {} synchronized: {}"
+msgstr "Δείκτης {} συγχρονισμένος: {}"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 406
+msgid "Changing {} to {}"
+msgstr "Αλλαγή {} σε {}"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 419
+msgid "ERROR: Failed to change {} to {}"
+msgstr "ΣΦΑΛΜΑ: Αποτυχία αλλαγής {} σε {}"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 420
+msgid "Failed to change setting: {}"
+msgstr "Αποτυχία αλλαγής ρύθμισης: {}"

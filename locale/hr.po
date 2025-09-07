@@ -1,0 +1,222 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the pipewire-proaudio-config package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: pipewire-proaudio-config\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: attranslate\n"
+msgid "Applying, please wait..."
+msgstr "Primjena, molimo pričekajte..."
+msgid ""
+"GRUB updated successfully!\\n"
+"Restart your computer for it to take effect."
+msgstr ""
+"GRUB je uspješno ažuriran!\\n"
+"Ponovno pokrenite računalo da bi promjene stupile na snagu."
+msgid "An error occurred while updating GRUB."
+msgstr "Došlo je do pogreške prilikom ažuriranja GRUB-a."
+msgid "Already disabled. No changes made."
+msgstr "Već onemogućeno. Nema promjena."
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 49
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 98
+msgid "PipeWire ProAudio Config"
+msgstr "PipeWire ProAudio Konfiguracija"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 203
+msgid "Checks"
+msgstr "Provjere"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 205
+msgid "ProAudio Checks"
+msgstr "ProAudio Provjere"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 212
+msgid "Reload all statuses"
+msgstr "Ponovno učitaj sve statuse"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 220
+msgid "Kernel Low Latency"
+msgstr "Niska latencija jezgre"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 221
+msgid "Check if the kernel configuration has lowlatency enabled"
+msgstr "Provjerite ima li konfiguracija jezgre omogućenu nisku latenciju."
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 228
+msgid "System"
+msgstr "Sustav"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 230
+msgid "ProAudio System Settings"
+msgstr "Postavke ProAudio sustava"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 236
+msgid "CPU Performance Power Profile"
+msgstr "Profil snage performansi CPU-a"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 237
+msgid "Turn on CPU performance power profile."
+msgstr "Uključite profil snage performansi CPU-a."
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 244
+msgid "Meltdown Mitigations off"
+msgstr "Mitigacije Meltdowna isključene"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 245
+#, python-brace-format
+msgid ""
+"Warning: Using mitigations=off will make your machine less secure! For more information see: <a "
+"href='{link}'>{link}</a>"
+msgstr ""
+"Upozorenje: Korištenje mitigations=off će učiniti vaš uređaj manje sigurnim! Za više informacija "
+"pogledajte: <a href='{link}'>{link}</a>"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 251
+msgid "noWatchdog"
+msgstr "noWatchdog"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 252
+msgid ""
+"Disables the hardware watchdog and TSC clocksource systems, maintaining high performance but "
+"removing automatic protections against system crashes."
+msgstr ""
+"Onemogućuje hardverski nadzor i TSC izvor vremena, održavajući visoke performanse, ali uklanjajući "
+"automatske zaštite od rušenja sustava."
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 258
+msgid "IRQ Forced Threading"
+msgstr "IRQ prisilno nitičenje"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 259
+msgid "Warning: If you do not know what this is and/or are not sure, DO NOT enable this feature."
+msgstr "Upozorenje: Ako ne znate što je ovo i/ili niste sigurni, NE aktivirajte ovu funkciju."
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 266
+msgid "Multi/Hyper Threading OFF"
+msgstr "Multi/Hyper Threading ISKLJUČENO"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 267
+#, python-brace-format
+msgid ""
+"Simultaneous Multithreading (SMT) or hyperthreading can cause spikes in DSP load at higher DSP "
+"loads.\n"
+"It can improve single-task performance, but it can worsen multitasking and other programs, so use "
+"it wisely.\n"
+"<a href='{link}'>{link}</a>"
+msgstr ""
+"Simultanozno višestruko nitovanje (SMT) ili hiperthreading mogu uzrokovati skokove u opterećenju "
+"DSP-a pri višim opterećenjima DSP-a. Može poboljšati performanse jedne zadaće, ali može pogoršati "
+"multitasking i druge programe, stoga ga koristite mudro. <a href='{link}'>{link}</a>"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 273
+msgid "User in Audio Group"
+msgstr "Korisnik u Audio Grupi"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 274
+msgid ""
+"It is generally good practice to have an audio group, and add any users that should be allowed to "
+"perform audio tasks to this group."
+msgstr ""
+"Općenito je dobra praksa imati audio grupu i dodati sve korisnike koji bi trebali imati dopuštenje "
+"za izvođenje audio zadataka u ovu grupu."
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 280
+msgid "Disable Wifi"
+msgstr "Onemogući Wifi"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 281
+msgid ""
+"NetworkManager keeps scanning for new wireless networks in the background and this might cause "
+"xruns. The best option is to not use a wireless network in a low-latency real-time audio "
+"environment."
+msgstr ""
+"NetworkManager neprekidno pretražuje nove bežične mreže u pozadini, što može uzrokovati xrune. "
+"Najbolja opcija je ne koristiti bežičnu mrežu u okruženju s niskom latencijom za real-time audio."
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 289
+msgid "Unavailable: script not found."
+msgstr "Nedostupno: skripta nije pronađena."
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 290
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 321
+msgid "Script not found: {}"
+msgstr "Skripta nije pronađena: {}"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 301
+msgid "Enabled"
+msgstr "Omogućeno"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 303
+msgid "Disabled"
+msgstr "Onemogućeno"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 305
+msgid "Unavailable: script returned invalid output."
+msgstr "Nedostupno: skripta je vratila nevažeći izlaz."
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 306
+msgid "Invalid output from script {}: {}"
+msgstr "Nevažeći izlaz iz skripte {}: {}"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 309
+msgid "Unavailable: script returned an error."
+msgstr "Nedostupno: skripta je vratila pogrešku."
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 310
+msgid "Error checking state: {}"
+msgstr "Provjera pogreške stanja: {}"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 313
+msgid "Unavailable: failed to run script."
+msgstr "Nedostupno: nije uspjelo pokretanje skripte."
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 314
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 355
+msgid "Error running script {}: {}"
+msgstr "Greška prilikom pokretanja skripte {}: {}"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 333
+msgid "State changed successfully"
+msgstr "Stanje je uspješno promijenjeno."
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 335
+msgid "Script output: {}"
+msgstr "Izlaz skripte: {}"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 339
+msgid "Script failed with exit code: {}"
+msgstr "Skripta je neuspješno završila s izlaznim kodom: {}"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 351
+msgid "Script timeout: {}"
+msgstr "Istek vremena skripte: {}"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 375
+msgid "Switch {} synchronized: {}"
+msgstr "Prebaci {} sinkronizirano: {}"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 398
+msgid "Indicator {} synchronized: {}"
+msgstr "Pokazatelj {} sinkroniziran: {}"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 406
+msgid "Changing {} to {}"
+msgstr "Mijenjanje {} u {}"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 419
+msgid "ERROR: Failed to change {} to {}"
+msgstr "GREŠKA: Nije uspjelo promijeniti {} u {}"
+# 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 420
+msgid "Failed to change setting: {}"
+msgstr "Neuspješno promijenjena postavka: {}"
