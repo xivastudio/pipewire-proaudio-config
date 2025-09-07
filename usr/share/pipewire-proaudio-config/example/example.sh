@@ -3,25 +3,25 @@
 # check current status
 check_state() {
   if [[ "$XDG_CURRENT_DESKTOP" == *"KDE"* ]] || [[ "$XDG_CURRENT_DESKTOP" == *"Plasma"* ]];then
-    if [[ "$(LANG=C some Command)" == "true" ]];then #or if some Command &>/dev/null;then # if command response exit 0
+    if [[ "$(LANG=C LANGUAGE=C some Command)" == "true" ]];then #or if some Command &>/dev/null;then # if command response exit 0
       echo "true"
     else
       echo "false"
     fi
 #   elif [[ "$XDG_CURRENT_DESKTOP" == *"GNOME"* ]];then
-#     if [[ "$(LANG=C some Command)" == "true" ]];then #or if some Command &>/dev/null;then # if command response exit 0
+#     if [[ "$(LANG=C LANGUAGE=C some Command)" == "true" ]];then #or if some Command &>/dev/null;then # if command response exit 0
 #       echo "true"
 #     else
 #       echo "false"
 #     fi
 #   elif [[ "$XDG_CURRENT_DESKTOP" == *"XFCE"* ]];then
-#     if [[ "$(LANG=C some Command)" == "true" ]];then #or if some Command &>/dev/null;then # if command response exit 0
+#     if [[ "$(LANG=C LANGUAGE=C some Command)" == "true" ]];then #or if some Command &>/dev/null;then # if command response exit 0
 #       echo "true"
 #     else
 #       echo "false"
 #     fi
 #   elif [[ "$XDG_CURRENT_DESKTOP" == *"Cinnamon"* ]] || [[ "$XDG_CURRENT_DESKTOP" == *"X-Cinnamon"* ]];then
-#     if [[ "$(LANG=C some Command)" == "true" ]];then #or if some Command &>/dev/null;then # if command response exit 0
+#     if [[ "$(LANG=C LANGUAGE=C some Command)" == "true" ]];then #or if some Command &>/dev/null;then # if command response exit 0
 #       echo "true"
 #     else
 #       echo "false"

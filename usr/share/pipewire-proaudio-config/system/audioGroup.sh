@@ -2,7 +2,7 @@
 
 # check current status
 check_state() {
-  if [[ "$(powerprofilesctl get)" == "performance" ]];then
+  if [[ -n "$(grep audio <<< $(groups $(whoami)))" ]];then
     echo "true"
   else
     echo "false"
@@ -13,10 +13,13 @@ check_state() {
 toggle_state() {
   new_state="$1"
   if [[ "$new_state" == "true" ]];then
-    powerprofilesctl set performance
+    if [[ -z "$(getent group audio)" ]];then
+      pkexec groupadd audio
+    fi
+    pkexec usermod -aG audio $(whoami)
     exitCode=$?
   else
-    powerprofilesctl set balanced
+    pkexec gpasswd -d $(whoami)
     exitCode=$?
   fi
   exit $exitCode

@@ -2,7 +2,7 @@
 
 # check current status
 check_state() {
-  if [[ "$(grep GRUB_TIMEOUT= /etc/default/grub | cut -d"=" -f2)" == "1" ]];then
+  if [[ "$(LANG=C LANGUAGE=C nmcli radio wifi)" == "enabled" ]];then
     echo "true"
   else
     echo "false"
@@ -13,10 +13,10 @@ check_state() {
 toggle_state() {
   new_state="$1"
   if [[ "$new_state" == "true" ]];then
-    pkexec /usr/share/biglinux/biglinux-settings/system/fastGrubRun.sh "1" "$USER" "$DISPLAY" "$XAUTHORITY" "$DBUS_SESSION_BUS_ADDRESS" "$LANG" "$LANGUAGE"
+    nmcli radio wifi on
     exitCode=$?
   else
-    pkexec /usr/share/biglinux/biglinux-settings/system/fastGrubRun.sh "5" "$USER" "$DISPLAY" "$XAUTHORITY" "$DBUS_SESSION_BUS_ADDRESS" "$LANG" "$LANGUAGE"
+    nmcli radio wifi off
     exitCode=$?
   fi
   exit $exitCode

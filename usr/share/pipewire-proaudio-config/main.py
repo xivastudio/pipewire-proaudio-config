@@ -47,7 +47,7 @@ class SystemSettingsWindow(Adw.ApplicationWindow):
 
         # Window configuration
         self.set_title(_("PipeWire ProAudio Config"))
-        self.set_default_size(600, 700)
+        self.set_default_size(600, 760)
 
         # Dictionaries to map UI widgets to their corresponding shell scripts
         self.switch_scripts = {}
@@ -63,6 +63,9 @@ class SystemSettingsWindow(Adw.ApplicationWindow):
         """Loads custom CSS for styling widgets like status indicators."""
         provider = Gtk.CssProvider()
         css = """
+        preferencesgroup .heading {
+            font-size: 1.3rem;
+        }
         .status-indicator {
             min-width: 16px;
             min-height: 16px;
@@ -122,43 +125,75 @@ class SystemSettingsWindow(Adw.ApplicationWindow):
         print("Reloading all statuses...")
         self.sync_all_switches()
 
-    def create_status_indicator_with_script(self, parent_group, title, subtitle, script_name):
-        """Creates a non-interactive row with a title, subtitle, and a status indicator dot."""
-        row = Adw.ActionRow()
-        row.set_title(title)
-        row.set_subtitle(subtitle)
+    def create_indicator_row(self, parent_group, title, subtitle, script_name):
+        """Builds a custom indicator row that is visually consistent with the switch rows."""
+        row = Adw.PreferencesRow()
+
+        main_box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=12, margin_top=6, margin_bottom=6, margin_start=12, margin_end=12)
+        row.set_child(main_box)
+
+        title_area = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, hexpand=True)
+        main_box.append(title_area)
+
+        title_label = Gtk.Label(xalign=0, label=title)
+        title_label.add_css_class("title-5")
+        title_area.append(title_label)
+
+        subtitle_label = Gtk.Label(xalign=0, label=subtitle)
+        subtitle_label.add_css_class("caption")
+        subtitle_label.add_css_class("dim-label")
+        title_area.append(subtitle_label)
 
         indicator = Gtk.Box(valign=Gtk.Align.CENTER)
         indicator.add_css_class("status-indicator")
+        main_box.append(indicator)
 
-        # Associate the script path with the indicator widget
         script_group = getattr(parent_group, 'script_group', 'default')
         script_path = os.path.join(script_group, f"{script_name}.sh")
         self.status_indicators[indicator] = script_path
 
-        row.add_suffix(indicator)
         parent_group.add(row)
-
         return indicator
 
-    def create_switch_with_script(self, parent_group, title, subtitle, script_name):
-        """Creates an interactive row with a title, subtitle, and a switch."""
-        row = Adw.ActionRow()
-        row.set_title(title)
-        row.set_subtitle(subtitle)
+    # Função para criar um switch com uma área de detalhes expansível e link clicável.
+    def create_row_with_clickable_link(self, parent_group, title, subtitle_with_markup, script_name):
+        """Builds a custom row mimicking Adw.ActionRow to allow for a clickable link in the subtitle."""
+        # Usa Adw.PreferencesRow como base para obter o estilo de fundo e borda corretos.
+        row = Adw.PreferencesRow()
 
-        switch = Gtk.Switch()
-        switch.set_valign(Gtk.Align.CENTER)
+        # Box horizontal principal para conter a área de título e o switch.
+        main_box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=12, margin_top=6, margin_bottom=6, margin_start=12, margin_end=12)
+        row.set_child(main_box)
 
-        # Associate the script path with the switch widget
+        # Box vertical para o título e o subtítulo clicável.
+        # hexpand=True é crucial para empurrar o switch para a direita.
+        title_area = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, hexpand=True)
+        main_box.append(title_area)
+
+        title_label = Gtk.Label(xalign=0, label=title)
+        title_label.add_css_class("title-5")
+        title_area.append(title_label)
+
+        subtitle_label = Gtk.Label(
+            xalign=0,
+            wrap=True,
+            use_markup=True,
+            label=subtitle_with_markup
+        )
+        subtitle_label.add_css_class("caption")
+        subtitle_label.add_css_class("dim-label")
+        title_area.append(subtitle_label)
+
+        # O switch, alinhado ao centro verticalmente.
+        switch = Gtk.Switch(valign=Gtk.Align.CENTER)
+        main_box.append(switch)
+
+        # Associa o script ao switch
         script_group = getattr(parent_group, 'script_group', 'default')
         script_path = os.path.join(script_group, f"{script_name}.sh")
         self.switch_scripts[switch] = script_path
-
-        # Connect the state change signal to its callback
         switch.connect("state-set", self.on_switch_changed)
 
-        row.add_suffix(switch)
         parent_group.add(row)
         return switch
 
@@ -180,7 +215,7 @@ class SystemSettingsWindow(Adw.ApplicationWindow):
         group.set_header_suffix(reload_button)
 
         # Low Latency
-        self.lowLatency_indicator = self.create_status_indicator_with_script(
+        self.lowLatency_indicator = self.create_indicator_row(
             group,
             _("Kernel Low Latency"),
             _("Check if the kernel configuration has lowlatency enabled"),
@@ -196,42 +231,56 @@ class SystemSettingsWindow(Adw.ApplicationWindow):
         parent.append(group)
 
         # Power Profile
-        self.powerProfile_switch = self.create_switch_with_script(
+        self.powerProfile_switch = self.create_row_with_clickable_link(
             group,
             _("CPU Performance Power Profile"),
             _("Turn on CPU performance power profile."),
             "powerProfile"
         )
         # Meltdown mitigations
-        self.meltdownMitigations_switch = self.create_switch_with_script(
+        link_meltdown = "https://meltdownattack.com"
+        self.meltdownMitigations_switch = self.create_row_with_clickable_link(
             group,
             _("Meltdown Mitigations off"),
-            _("Warning: Using mitigations=off will make your machine less secure! Use with caution! For more information on the risks see https://meltdownattack.com"),
+            _("Warning: Using mitigations=off will make your machine less secure! For more information see: <a href='{link}'>{link}</a>").format(link=link_meltdown),
             "meltdownMitigations"
         )
+        # noWatchdog
+        self.noWatchdog_switch = self.create_row_with_clickable_link(
+            group,
+            _("noWatchdog"),
+            _("Disables the hardware watchdog and TSC clocksource systems, maintaining high performance but removing automatic protections against system crashes."),
+            "noWatchdog"
+        )
         # Kernel Threadirqs
-        self.kernelThreadirqs_switch = self.create_switch_with_script(
+        self.kernelThreadirqs_switch = self.create_row_with_clickable_link(
             group,
             _("IRQ Forced Threading"),
             _("Warning: If you do not know what this is and/or are not sure, DO NOT enable this feature."),
             "kernelThreadirqs"
         )
-
-    # def create_example_group(self, parent):
-    #     # Grupo de exemplo
-    #     group = Adw.PreferencesGroup()
-    #     group.set_title(_("Example"))
-    #     group.script_group = "example" # scripts folder
-    #     group.set_description(_("Example group description"))
-    #     parent.append(group)
-    #
-    #     # Example
-    #     self.example_switch = self.create_switch_with_script(
-    #         group,
-    #         _("Example Name"),
-    #         _("Example description."),
-    #         "example" # name of the .sh file
-    #     )
+        # Multi/Hyper Threading
+        link_smt = "https://en.wikipedia.org/wiki/Simultaneous_multithreading"
+        self.multiThreading_switch = self.create_row_with_clickable_link(
+            group,
+            _("Multi/Hyper Threading OFF"),
+            _("Simultaneous Multithreading (SMT) or hyperthreading can cause spikes in DSP load at higher DSP loads.\nIt can improve single-task performance, but it can worsen multitasking and other programs, so use it wisely.\n<a href='{link}'>{link}</a>").format(link=link_smt),
+            "multiThreading"
+        )
+        # User in Audio Group
+        self.audioGroup_switch = self.create_row_with_clickable_link(
+            group,
+            _("User in Audio Group"),
+            _("It is generally good practice to have an audio group, and add any users that should be allowed to perform audio tasks to this group."),
+            "audioGroup"
+        )
+        # Disable Wifi
+        self.disableWifi_switch = self.create_row_with_clickable_link(
+            group,
+            _("Disable Wifi"),
+            _("NetworkManager keeps scanning for new wireless networks in the background and this might cause xruns. The best option is to not use a wireless network in a low-latency real-time audio environment."),
+            "disableWifi"
+        )
 
     def check_script_state(self, script_path):
         """Executes a script with the 'check' argument to get its current state.
@@ -311,7 +360,7 @@ class SystemSettingsWindow(Adw.ApplicationWindow):
         """Synchronizes all UI widgets and disables them if their script is invalid, providing a tooltip with the reason."""
         # Sync all switches
         for switch, script_path in self.switch_scripts.items():
-            row = switch.get_parent()
+            row = switch.get_parent().get_parent()
             status, message = self.check_script_state(script_path)
 
             if status is None:
@@ -327,7 +376,7 @@ class SystemSettingsWindow(Adw.ApplicationWindow):
 
         # Sync all status indicators
         for indicator, script_path in self.status_indicators.items():
-            row = indicator.get_parent()
+            row = indicator.get_parent().get_parent()
             status, message = self.check_script_state(script_path)
 
             # Always remove all state classes first to ensure a clean slate

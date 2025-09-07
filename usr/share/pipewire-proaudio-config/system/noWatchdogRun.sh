@@ -2,16 +2,17 @@
 
 #Translation
 export TEXTDOMAINDIR="/usr/share/locale"
-export TEXTDOMAIN=biglinux-settings
+export TEXTDOMAIN=pipewire-proaudio-config
 
 # Assign the received arguments to variables with clear names
-timeout="$1"
+function="$1"
 originalUser="$2"
 userDisplay="$3"
 userXauthority="$4"
 userDbusAddress="$5"
 userLang="$6"
 userLanguage="$7"
+parameter='nowatchdog tsc=nowatchdog'
 
 # Helper function to run a command as the original user
 runAsUser() {
@@ -27,20 +28,43 @@ mkfifo "$pipePath"
 zenityText=$"Applying, please wait..."
 runAsUser "zenity --progress --title='grub' --text=\"$zenityText\" --pulsate --auto-close --no-cancel < '$pipePath'" &
 
+grubFinalMessage() {
+if [[ "$updateSucesse" == "true" ]]; then
+  zenityText=$"GRUB updated successfully!\nRestart your computer for it to take effect."
+  runAsUser "zenity --info --text=\"$zenityText\""
+else
+  zenityText=$"An error occurred while updating GRUB."
+  runAsUser "zenity --error --text=\"$zenityText\""
+fi
+}
+
 # 3. Executes the root tasks.
 updateGrubTask() {
-    sed -i "/GRUB_TIMEOUT=/s/=.*/=$timeout/" /etc/default/grub
-    update-grub > "$pipePath"
+  if [[ "$function" == "enable" ]]; then
+    if grep -q "$parameter" "/etc/default/grub"; then
+      # Already enabled, nothing to do. Inform zenity and exit the function gracefully.
+      echo $"Already disabled. No changes made." > "$pipePath"
+      return
+    else
+      # Add the parameter
+      sed -i.bak -E "/^GRUB_CMDLINE_LINUX_DEFAULT=/ s|(['\"])$| $parameter\1|" "/etc/default/grub"
+    fi
+  else # function is "disable"
+    sed -i "/^GRUB_CMDLINE_LINUX_DEFAULT=/s/$parameter//g" "/etc/default/grub"
+  fi
+
+  # Run update-grub only if changes were made
+  update-grub > "$pipePath"
+  exitCode=$?
 }
 updateGrubTask
-exitCode=$?
 
 # 4. Cleans up the pipe
 rm "$pipePath"
 
 # 5. Shows the final result to the user, also with the correct theme.
 if [[ "$exitCode" -eq 0 ]]; then
-  zenityText=$"GRUB updated successfully!"
+  zenityText=$"GRUB updated successfully!\nRestart your computer for it to take effect."
   runAsUser "zenity --info --text=\"$zenityText\""
 else
   zenityText=$"An error occurred while updating GRUB."

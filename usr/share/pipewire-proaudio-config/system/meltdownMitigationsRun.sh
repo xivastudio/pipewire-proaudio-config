@@ -43,7 +43,7 @@ updateGrubTask() {
   if [[ "$function" == "enable" ]]; then
     if grep -q "$parameter" "/etc/default/grub"; then
       # Already enabled, nothing to do. Inform zenity and exit the function gracefully.
-      echo $"Mitigations are already disabled. No changes made." > "$pipePath"
+      echo $"Already disabled. No changes made." > "$pipePath"
       return
     else
       # Add the parameter

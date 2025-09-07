@@ -2,7 +2,7 @@
 
 # check current status
 check_state() {
-  if [[ "$(systemctl is-enabled big-mount)" == "enabled" ]];then
+  if [[ -n "$(grep "nowatchdog" /proc/cmdline)" ]] && [[ -n "$(grep "tsc=nowatchdog" /proc/cmdline)" ]];then
     echo "true"
   else
     echo "false"
@@ -13,11 +13,11 @@ check_state() {
 toggle_state() {
   new_state="$1"
   if [[ "$new_state" == "true" ]];then
-      pkexec systemctl enable big-mount
-      exitCode=$?
+    pkexec $PWD/system/noWatchdog.sh "enable" "$USER" "$DISPLAY" "$XAUTHORITY" "$DBUS_SESSION_BUS_ADDRESS" "$LANG" "$LANGUAGE"
+    exitCode=$?
   else
-      pkexec systemctl disable big-mount
-      exitCode=$?
+    pkexec $PWD/system/noWatchdog.sh "disable" "$USER" "$DISPLAY" "$XAUTHORITY" "$DBUS_SESSION_BUS_ADDRESS" "$LANG" "$LANGUAGE"
+    exitCode=$?
   fi
   exit $exitCode
 }
