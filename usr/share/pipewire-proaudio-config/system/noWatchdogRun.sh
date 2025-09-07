@@ -45,16 +45,33 @@ updateGrubTask() {
       # Already enabled, nothing to do. Inform zenity and exit the function gracefully.
       echo $"Already disabled. No changes made." > "$pipePath"
       return
-    else
+    elif grep -q "GRUB_CMDLINE_LINUX_DEFAULT=" "/etc/default/grub"; then
       # Add the parameter
       sed -i.bak -E "/^GRUB_CMDLINE_LINUX_DEFAULT=/ s|(['\"])$| $parameter\1|" "/etc/default/grub"
+    elif grep -q "GRUB_CMDLINE_LINUX=" "/etc/default/grub"; then
+      # Add the parameter
+      sed -i.bak -E "/^GRUB_CMDLINE_LINUX=/ s|(['\"])$| $parameter\1|" "/etc/default/grub"
     fi
-  else # function is "disable"
-    sed -i "/^GRUB_CMDLINE_LINUX_DEFAULT=/s/$parameter//g" "/etc/default/grub"
+  else
+    # remove the parameter
+    sed -i "s/$parameter//g" "/etc/default/grub"
   fi
 
   # Run update-grub only if changes were made
-  update-grub > "$pipePath"
+  # some systems do not have update-grub and grub-mkconfig in the path, so check the file directly.
+  if [[ -e "/usr/bin/update-grub" ]];then
+    /usr/bin/update-grub > "$pipePath"
+  elif [[ -e "/usr/sbin/update-grub" ]];then
+    /usr/sbin/update-grub > "$pipePath"
+  elif [[ -e "/usr/bin/grub-mkconfig" ]];then
+    /usr/bin/grub-mkconfig > "$pipePath"
+  elif [[ -e "/usr/sbin/grub-mkconfig" ]];then
+    /usr/sbin/grub-mkconfig > "$pipePath"
+  elif [[ -e "/usr/bin/grub2-mkconfig" ]];then
+    /usr/bin/grub2-mkconfig > "$pipePath"
+  elif [[ -e "/usr/sbin/grub2-mkconfig" ]];then
+    /usr/sbin/grub2-mkconfig > "$pipePath"
+  fi
   exitCode=$?
 }
 updateGrubTask

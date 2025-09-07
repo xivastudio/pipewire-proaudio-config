@@ -1,4 +1,9 @@
 #!/bin/bash
 
 cd /usr/share/pipewire-proaudio-config/
-exec -a pipewire-proaudio-config python main.py
+
+if which python >/dev/null 2>&1; then
+  exec -a pipewire-proaudio-config python main.py
+else
+  exec -a pipewire-proaudio-config python3 main.py
+fi
