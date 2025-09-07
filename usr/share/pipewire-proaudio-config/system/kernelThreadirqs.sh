@@ -2,9 +2,9 @@
 
 # check current status
 check_state() {
-  if [[ -e "/proc/config.gz" ]] && [[ -n "$(zgrep CONFIG_PREEMPT_RT=y /proc/config.gz)" ]];then
+  if [[ -e "/proc/config.gz" ]] && [[ -n "$(zgrep CONFIG_PREEMPT_RT=y /proc/config.gz)" ]] || [[ -e "/boot/config-$(uname -r)" ]] && [[ -n "$(grep CONFIG_PREEMPT_RT=y /boot/config-$(uname -r))" ]];then
     echo ""
-  elif [[ -e "/proc/config.gz" ]] && [[ -n "$(zgrep CONFIG_IRQ_FORCED_THREADING=y /proc/config.gz)" ]];then
+  elif [[ -e "/proc/config.gz" ]] && [[ -n "$(zgrep CONFIG_IRQ_FORCED_THREADING=y /proc/config.gz)" ]] || [[ -e "/boot/config-$(uname -r)" ]] && [[ -n "$(grep CONFIG_IRQ_FORCED_THREADING=y /boot/config-$(uname -r))" ]];then
     if [[ -n "$(grep "threadirqs" /proc/cmdline)" ]];then
       echo "true"
     else

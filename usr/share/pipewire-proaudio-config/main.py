@@ -281,6 +281,13 @@ class SystemSettingsWindow(Adw.ApplicationWindow):
             _("NetworkManager keeps scanning for new wireless networks in the background and this might cause xruns. The best option is to not use a wireless network in a low-latency real-time audio environment."),
             "disableWifi"
         )
+        # Disable Bluetooth
+        self.disableBluetooth_switch = self.create_row_with_clickable_link(
+            group,
+            _("Disable Bluetooth"),
+            _("Bluetooth keeps scanning for new devices in the background and this might cause xruns. The best option is to not use a bluetooth in a low-latency real-time audio environment."),
+            "disableBluetooth"
+        )
 
     def check_script_state(self, script_path):
         """Executes a script with the 'check' argument to get its current state.
