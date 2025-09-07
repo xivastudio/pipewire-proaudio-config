@@ -74,3 +74,77 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ github.ref }}
 
+      - name: Get branch name
+        run: |
+          BRANCH_NAME="${GITHUB_REF#refs/heads/}"
+          echo "BRANCH_NAME=$BRANCH_NAME" >> $GITHUB_ENV
+
+          if [[ "$BRANCH_NAME" == *"stable"* ]]; then
+            echo "CREATE_RELEASE=true" >> $GITHUB_ENV
+          else
+            echo "CREATE_RELEASE=false" >> $GITHUB_ENV
+          fi
+
+      - name: Set package info
+        run: |
+          PKG_NAME=$(grep "^pkgname=" PKGBUILD.txt | cut -d'=' -f2)
+          PKG_DESC=$(grep "^pkgdesc=" PKGBUILD.txt | cut -d'"' -f2)
+          PKG_VERSION=$(date +%y.%m.%d)
+          PKG_RELEASE=$(date +%H%M)
+          MAINTAINER=$(grep "^# Maintainer:" PKGBUILD.txt | sed 's/# Maintainer: //' | cut -d'<' -f1 | xargs)
+
+          echo "PKG_NAME=$PKG_NAME" >> $GITHUB_ENV
+          echo "PKG_DESC=$PKG_DESC" >> $GITHUB_ENV
+          echo "MAINTAINER=$MAINTAINER" >> $GITHUB_ENV
+          echo "VERSION=${PKG_VERSION}-${PKG_RELEASE}" >> $GITHUB_ENV
+
+      - name: Create package structure
+        run: |
+          mkdir -p package_root
+
+          if [ -d "usr" ]; then
+            cp -r usr package_root/
+          fi
+
+          if [ -d "etc" ]; then
+            cp -r etc package_root/
+          fi
+
+          if [ -d "opt" ]; then
+            cp -r opt package_root/
+          fi
+
+          find package_root -type f -exec chmod 644 {} \;
+          find package_root -type d -exec chmod 755 {} \;
+          find package_root -name "*.sh" -exec chmod +x {} \; 2>/dev/null || true
+          find package_root/usr/bin -type f -exec chmod +x {} \; 2>/dev/null || true
+
+      - name: Build DEB package
+        uses: jiro4989/build-deb-action@v3
+        with:
+          package: ${{ env.PKG_NAME }}
+          package_root: package_root
+          maintainer: ${{ env.MAINTAINER }}
+          version: ${{ env.VERSION }}
+          arch: 'all'
+          desc: ${{ env.PKG_DESC }}
+          depends: 'python3, python3-gi, gir1.2-gtk-4.0, policykit-1, zenity, gzip, power-profiles-daemon'
+          homepage: 'https://github.com/biglinux/${{ env.PKG_NAME }}'
+
+      - name: Create Release
+        if: env.CREATE_RELEASE == 'true'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ env.VERSION }}
+          name: Release v${{ env.VERSION }}
+          body: |
+            Release v${{ env.VERSION }} from branch ${{ env.BRANCH_NAME }}
+
+            Install:
+            ```
+            sudo dpkg -i ${{ env.PKG_NAME }}_${{ env.VERSION }}_all.deb
+            sudo apt-get install -f
+            ```
+          files: '*.deb'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

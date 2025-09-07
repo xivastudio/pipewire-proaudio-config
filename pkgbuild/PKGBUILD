@@ -1,4 +1,4 @@
-# Maintainer: Bruno Goncalves <bigbruno@gmail.com>
+# Maintainer: Barnabe di Kartola <barnabedikartola@gmail.com>
 
 pkgname=pipewire-proaudio-config
 pkgver=$(date +%y.%m.%d)
