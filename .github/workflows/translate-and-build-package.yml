@@ -79,7 +79,7 @@ jobs:
           BRANCH_NAME="${GITHUB_REF#refs/heads/}"
           echo "BRANCH_NAME=$BRANCH_NAME" >> $GITHUB_ENV
 
-          if [[ "$BRANCH_NAME" == *"stable"* ]]; then
+          if [[ "$BRANCH_NAME" == *"stable"* ]] || [[ "$BRANCH_NAME" == *"testing"* ]]; then
             echo "CREATE_RELEASE=true" >> $GITHUB_ENV
           else
             echo "CREATE_RELEASE=false" >> $GITHUB_ENV
