@@ -1,4 +1,4 @@
-# Maintainer: Bruno Goncalves <bigbruno@gmail.com>
+# Maintainer: Barnabe di Kartola <barnabedikartola@gmail.com>
 
 pkgname=pipewire-proaudio-config
 pkgver=$(date +%y.%m.%d)
@@ -7,8 +7,7 @@ arch=('any')
 license=('GPL')
 pkgdesc="Scripts and configuration files written in GTK4 that simplify pipewire configuration for ProAudio."
 depends=('gtk4' 'python' 'polkit' 'zenity' 'gzip' 'power-profiles-daemon')
-# url="https://github.com/biglinux/$pkgname"
-url="https://github.com/xivastudio/$pkgname"
+url="https://github.com/biglinux/$pkgname"
 # conflicts=('')
 source=("git+${url}.git")
 md5sums=(SKIP)
