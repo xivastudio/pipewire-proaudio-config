@@ -9,6 +9,7 @@ import subprocess
 import os
 import locale
 import gettext
+from pipewire_settings_page import PipewireSettingsPage
 
 # Set up gettext for application localization.
 DOMAIN = 'pipewire-proaudio-config'
@@ -47,7 +48,7 @@ class SystemSettingsWindow(Adw.ApplicationWindow):
 
         # Window configuration
         self.set_title(_("PipeWire ProAudio Config"))
-        self.set_default_size(600, 760)
+        self.set_default_size(600, 870)
 
         # Dictionaries to map UI widgets to their corresponding shell scripts
         self.switch_scripts = {}
@@ -87,43 +88,102 @@ class SystemSettingsWindow(Adw.ApplicationWindow):
             self.get_display(), provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
         )
 
+    # def setup_ui(self):
+    #     """Constructs the main UI layout and populates it with widgets."""
+    #     # Main vertical box container
+    #     main_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
+    #     self.set_content(main_box)
+    #
+    #     # Header bar with the main title
+    #     header_bar = Adw.HeaderBar()
+    #     header_bar.set_title_widget(Adw.WindowTitle(title=_("PipeWire ProAudio Config")))
+    #     main_box.append(header_bar)
+    #
+    #     # ScrolledWindow for the content area
+    #     scrolled = Gtk.ScrolledWindow()
+    #     scrolled.set_policy(Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC)
+    #     scrolled.set_vexpand(True)
+    #     main_box.append(scrolled)
+    #
+    #     # Main content container with margins
+    #     content_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=20)
+    #     content_box.set_margin_top(20)
+    #     content_box.set_margin_bottom(20)
+    #     content_box.set_margin_start(20)
+    #     content_box.set_margin_end(20)
+    #     scrolled.set_child(content_box)
+    #
+    #     # Create the preference groups
+    #     self.checks_group(content_box)
+    #     self.system_group(content_box)
+    #     # self.create_example_group(content_box)
+    #
+    #     # Initial synchronization of UI state with system state
+    #     self.sync_all_switches()
+
+
+
     def setup_ui(self):
         """Constructs the main UI layout and populates it with widgets."""
-        # Main vertical box container
         main_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
         self.set_content(main_box)
 
-        # Header bar with the main title
         header_bar = Adw.HeaderBar()
-        header_bar.set_title_widget(Adw.WindowTitle(title=_("PipeWire ProAudio Config")))
         main_box.append(header_bar)
 
-        # ScrolledWindow for the content area
-        scrolled = Gtk.ScrolledWindow()
-        scrolled.set_policy(Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC)
-        scrolled.set_vexpand(True)
-        main_box.append(scrolled)
+        # NOVO: ViewStack para conter as diferentes páginas de configurações
+        view_stack = Adw.ViewStack()
+        main_box.append(view_stack)
 
-        # Main content container with margins
-        content_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=20)
-        content_box.set_margin_top(20)
-        content_box.set_margin_bottom(20)
-        content_box.set_margin_start(20)
-        content_box.set_margin_end(20)
+        # NOVO: ViewSwitcher para controlar o ViewStack, colocado no HeaderBar
+        view_switcher = Adw.ViewSwitcher()
+        view_switcher.set_stack(view_stack)
+        header_bar.set_title_widget(view_switcher)
+
+        # Criação das páginas
+        system_page = self.create_system_page()
+        view_stack.add_titled_with_icon(system_page, "system", _("System Tweaks"), "preferences-system-symbolic")
+
+        pipewire_page = self.create_pipewire_page()
+        view_stack.add_titled_with_icon(pipewire_page, "pipewire", _("PipeWire Settings"), "audio-card-symbolic")
+
+        # Sincroniza o estado dos switches na página do sistema
+        self.sync_all_switches()
+
+    def create_system_page(self):
+        """Builds the page for system tweaks and checks."""
+        scrolled = Gtk.ScrolledWindow()
+        scrolled.set_vexpand(True)
+        scrolled.set_policy(Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC)
+        content_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=20, margin_top=20, margin_bottom=20, margin_start=20, margin_end=20)
         scrolled.set_child(content_box)
 
-        # Create the preference groups
         self.checks_group(content_box)
         self.system_group(content_box)
-        # self.create_example_group(content_box)
 
-        # Initial synchronization of UI state with system state
-        self.sync_all_switches()
+        return scrolled
+
+    # Lógica para criar a segunda página (conteúdo novo)
+    def create_pipewire_page(self):
+        """Builds the page for PipeWire settings by instantiating the external class."""
+        return PipewireSettingsPage(self)
 
     def on_reload_clicked(self, widget):
         """Callback for the reload button. Triggers a full UI state sync."""
         print("Reloading all statuses...")
         self.sync_all_switches()
+
+    # def on_apply_pipewire_settings_clicked(self, widget):
+    #     """Placeholder for applying PipeWire settings."""
+    #     samplerate = self.samplerate_dropdown.get_selected_item().get_string()
+    #     buffersize = self.buffersize_dropdown.get_selected_item().get_string()
+    #
+    #     message = _("Settings applied (placeholder): SR={}, BS={}").format(samplerate, buffersize)
+    #     print(message)
+    #
+    #     # A instância 'self' é a CustomWindow, que tem o método show_toast.
+    #     self.show_toast(message)
+
 
     def create_indicator_row(self, parent_group, title, subtitle, script_name):
         """Builds a custom indicator row that is visually consistent with the switch rows."""
@@ -136,7 +196,7 @@ class SystemSettingsWindow(Adw.ApplicationWindow):
         main_box.append(title_area)
 
         title_label = Gtk.Label(xalign=0, label=title)
-        title_label.add_css_class("title-5")
+        title_label.add_css_class("title-4")
         title_area.append(title_label)
 
         subtitle_label = Gtk.Label(xalign=0, label=subtitle)
@@ -171,7 +231,7 @@ class SystemSettingsWindow(Adw.ApplicationWindow):
         main_box.append(title_area)
 
         title_label = Gtk.Label(xalign=0, label=title)
-        title_label.add_css_class("title-5")
+        title_label.add_css_class("title-4")
         title_area.append(title_label)
 
         subtitle_label = Gtk.Label(
