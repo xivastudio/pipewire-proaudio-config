@@ -19,7 +19,7 @@ toggle_state() {
     pkexec usermod -aG audio $(whoami)
     exitCode=$?
   else
-    pkexec gpasswd -d $(whoami)
+    pkexec gpasswd -d $(whoami) audio
     exitCode=$?
   fi
   exit $exitCode

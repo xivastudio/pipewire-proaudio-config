@@ -54,7 +54,7 @@ updateGrubTask() {
     fi
   else
     # remove the parameter
-    sed -i "s/$parameter//g" "/etc/default/grub"
+    sed -i -E "s/$parameter//g" "/etc/default/grub"
   fi
 
   # Run update-grub only if changes were made

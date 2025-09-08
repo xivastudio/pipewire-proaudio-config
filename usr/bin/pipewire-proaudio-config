@@ -3,7 +3,7 @@
 cd /usr/share/pipewire-proaudio-config/
 
 if which python >/dev/null 2>&1; then
-  exec -a pipewire-proaudio-config python main.py
+  exec -a org.xivastudio.pipewire-proaudio-config python main.py
 else
-  exec -a pipewire-proaudio-config python3 main.py
+  exec -a org.xivastudio.pipewire-proaudio-config python3 main.py
 fi

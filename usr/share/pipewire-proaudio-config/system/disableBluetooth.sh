@@ -2,9 +2,10 @@
 
 # check current status
 check_state() {
-  if [[ "$(LANG=C LANGUAGE=C nmcli radio bluetooth)" == "enabled" ]];then
+  bluetoothState="$(LANG=C LANGUAGE=C timeout 0.1 bluetoothctl show | grep "Powered:" | awk '{print $2}')"
+  if [[ "$bluetoothState" == "yes" ]];then
     echo "true"
-  elif [[ "$(LANG=C LANGUAGE=C nmcli radio bluetooth)" == "disabled" ]];then
+  elif [[ "$bluetoothState" == "no" ]];then
     echo "false"
   fi
 }
@@ -13,10 +14,10 @@ check_state() {
 toggle_state() {
   new_state="$1"
   if [[ "$new_state" == "true" ]];then
-    nmcli radio bluetooth on
+    timeout 2 bluetoothctl power on
     exitCode=$?
   else
-    nmcli radio bluetooth off
+    timeout 2 bluetoothctl power off
     exitCode=$?
   fi
   exit $exitCode

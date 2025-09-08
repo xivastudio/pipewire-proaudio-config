@@ -88,41 +88,6 @@ class SystemSettingsWindow(Adw.ApplicationWindow):
             self.get_display(), provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
         )
 
-    # def setup_ui(self):
-    #     """Constructs the main UI layout and populates it with widgets."""
-    #     # Main vertical box container
-    #     main_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
-    #     self.set_content(main_box)
-    #
-    #     # Header bar with the main title
-    #     header_bar = Adw.HeaderBar()
-    #     header_bar.set_title_widget(Adw.WindowTitle(title=_("PipeWire ProAudio Config")))
-    #     main_box.append(header_bar)
-    #
-    #     # ScrolledWindow for the content area
-    #     scrolled = Gtk.ScrolledWindow()
-    #     scrolled.set_policy(Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC)
-    #     scrolled.set_vexpand(True)
-    #     main_box.append(scrolled)
-    #
-    #     # Main content container with margins
-    #     content_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=20)
-    #     content_box.set_margin_top(20)
-    #     content_box.set_margin_bottom(20)
-    #     content_box.set_margin_start(20)
-    #     content_box.set_margin_end(20)
-    #     scrolled.set_child(content_box)
-    #
-    #     # Create the preference groups
-    #     self.checks_group(content_box)
-    #     self.system_group(content_box)
-    #     # self.create_example_group(content_box)
-    #
-    #     # Initial synchronization of UI state with system state
-    #     self.sync_all_switches()
-
-
-
     def setup_ui(self):
         """Constructs the main UI layout and populates it with widgets."""
         main_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
@@ -172,18 +137,6 @@ class SystemSettingsWindow(Adw.ApplicationWindow):
         """Callback for the reload button. Triggers a full UI state sync."""
         print("Reloading all statuses...")
         self.sync_all_switches()
-
-    # def on_apply_pipewire_settings_clicked(self, widget):
-    #     """Placeholder for applying PipeWire settings."""
-    #     samplerate = self.samplerate_dropdown.get_selected_item().get_string()
-    #     buffersize = self.buffersize_dropdown.get_selected_item().get_string()
-    #
-    #     message = _("Settings applied (placeholder): SR={}, BS={}").format(samplerate, buffersize)
-    #     print(message)
-    #
-    #     # A instância 'self' é a CustomWindow, que tem o método show_toast.
-    #     self.show_toast(message)
-
 
     def create_indicator_row(self, parent_group, title, subtitle, script_name):
         """Builds a custom indicator row that is visually consistent with the switch rows."""
@@ -334,17 +287,17 @@ class SystemSettingsWindow(Adw.ApplicationWindow):
             _("It is generally good practice to have an audio group, and add any users that should be allowed to perform audio tasks to this group."),
             "audioGroup"
         )
-        # Disable Wifi
+        # Wifi
         self.disableWifi_switch = self.create_row_with_clickable_link(
             group,
-            _("Disable Wifi"),
+            _("Wifi"),
             _("NetworkManager keeps scanning for new wireless networks in the background and this might cause xruns. The best option is to not use a wireless network in a low-latency real-time audio environment."),
             "disableWifi"
         )
-        # Disable Bluetooth
+        # Bluetooth
         self.disableBluetooth_switch = self.create_row_with_clickable_link(
             group,
-            _("Disable Bluetooth"),
+            _("Bluetooth"),
             _("Bluetooth keeps scanning for new devices in the background and this might cause xruns. The best option is to not use a bluetooth in a low-latency real-time audio environment."),
             "disableBluetooth"
         )
