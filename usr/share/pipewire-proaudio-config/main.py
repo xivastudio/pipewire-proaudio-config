@@ -234,6 +234,13 @@ class SystemSettingsWindow(Adw.ApplicationWindow):
             _("Check if the kernel configuration has lowlatency enabled"),
             "kernelLowLatency"
         )
+        # Pipewire Jack
+        self.pipewireJack_indicator = self.create_indicator_row(
+            group,
+            _("Pipewire Jack"),
+            _("Check if 'pipewire-Jack' is instaled."),
+            "pipewireJack"
+        )
 
     def system_group(self, parent):
         """Builds the 'System' preferences group."""
@@ -286,6 +293,13 @@ class SystemSettingsWindow(Adw.ApplicationWindow):
             _("User in Audio Group"),
             _("It is generally good practice to have an audio group, and add any users that should be allowed to perform audio tasks to this group."),
             "audioGroup"
+        )
+        # Limits
+        self.limits_switch = self.create_row_with_clickable_link(
+            group,
+            _("Memlock and rtprio"),
+            _("Set memlock to unlimited and rtprio to 90."),
+            "limits"
         )
         # Wifi
         self.disableWifi_switch = self.create_row_with_clickable_link(
