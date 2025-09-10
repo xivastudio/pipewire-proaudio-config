@@ -2,7 +2,7 @@
 
 # check current status
 check_state() {
-  if [[ "$(grep '@audio' /etc/security/limits.conf | grep rtprio | awk '{print $4}')" -ge "90" ]] && [[ -n "$(grep 'memlock.*unlimited' /etc/security/limits.conf)" ]];then
+  if [[ "$(grep '@audio' /etc/security/*.conf | grep rtprio | awk '{print $4}')" -ge "90" ]] && [[ -n "$(grep 'memlock.*unlimited' /etc/security/*.conf)" ]];then
     echo "true"
   else
     echo "false"

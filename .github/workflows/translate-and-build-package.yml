@@ -130,7 +130,7 @@ jobs:
           version: ${{ env.VERSION }}
           arch: 'all'
           desc: ${{ env.PKG_DESC }}
-          depends: 'python3, python3-gi, gir1.2-gtk-4.0, polkitd, zenity, gzip, power-profiles-daemon'
+          depends: 'python3, python3-gi, gir1.2-adw-1, gir1.2-gtk-4.0, polkitd, zenity, gzip, power-profiles-daemon'
           homepage: 'https://github.com/biglinux/${{ env.PKG_NAME }}'
 
       - name: Create Release
