@@ -80,17 +80,17 @@ class PipewireSettingsPage(Adw.Bin):
         self.buffersize_row.add_suffix(self.buffersize_dropdown)
         self.group.add(self.buffersize_row)
 
-        # Box para os botões
+        # Box for buttons
         button_box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, halign=Gtk.Align.END, spacing=12, margin_top=10)
         content_box.append(button_box)
 
-        # Botão para aplicar temporariamente
+        # Button to apply temporarily
         self.apply_button = Gtk.Button(label=_("Apply Session"))
         self.apply_button.set_tooltip_text(_("Apply settings for the current session only. Lost on restart."))
         self.apply_button.connect("clicked", self._on_apply_session_clicked)
         button_box.append(self.apply_button)
 
-        # Botão para tornar permanente
+        # Button to make permanent
         self.permanent_button = Gtk.Button(label=_("Make Permanent & Apply"))
         self.permanent_button.set_tooltip_text(_("Apply settings now and save them for future sessions."))
         self.permanent_button.get_style_context().add_class("suggested-action")
@@ -110,21 +110,21 @@ class PipewireSettingsPage(Adw.Bin):
 
         self.group.set_description(description)
 
-        # --- Lógica do Sample Rate (inalterada) ---
+        # Sample Rate
         current_rate = live_settings.get("clock.rate")
         if current_rate and current_rate in self.samplerate_options:
             self.samplerate_dropdown.set_selected(self.samplerate_options.index(current_rate))
         else:
             self.samplerate_dropdown.set_selected(1)
 
-        # --- Nova Lógica Dinâmica para Buffer Size ---
+        # Buffer Size
         try:
             min_q = int(live_settings.get('clock.min-quantum', '64'))
             max_q = int(live_settings.get('clock.max-quantum', '1024'))
         except (ValueError, TypeError):
             min_q, max_q = 64, 1024 # Fallback seguro
 
-        # Gera potências de 2 entre o mínimo e o máximo
+        # Generates powers of 2 between the minimum and maximum
         self.buffersize_options = []
         val = 32
         while val < max_q:
@@ -132,23 +132,21 @@ class PipewireSettingsPage(Adw.Bin):
             if val >= min_q:
                 self.buffersize_options.append(str(val))
 
-        # Se a lista estiver vazia (caso raro), usa um fallback
+        # If the list is empty (rare case), use a fallback
         if not self.buffersize_options:
             self.buffersize_options = ["64", "128", "256", "512", "1024"]
 
-        # CORREÇÃO: Usa o método correto para remover o widget antigo.
         self.buffersize_row.remove(self.buffersize_dropdown)
-        # Cria e adiciona um novo dropdown com as opções corretas
         self.buffersize_dropdown = Gtk.DropDown.new_from_strings(self.buffersize_options)
         self.buffersize_dropdown.set_valign(Gtk.Align.CENTER)
         self.buffersize_row.add_suffix(self.buffersize_dropdown)
 
-        # Seleciona o valor atual
+        # Selects the current value
         current_quantum = live_settings.get("clock.quantum")
         if current_quantum and current_quantum in self.buffersize_options:
             self.buffersize_dropdown.set_selected(self.buffersize_options.index(current_quantum))
         else:
-            # Seleciona a opção mais próxima do final como um padrão seguro
+            # Select the option closest to the end as a safe default
             self.buffersize_dropdown.set_selected(len(self.buffersize_options) - 1)
 
     def _get_live_pipewire_settings(self):
@@ -234,7 +232,7 @@ class PipewireSettingsPage(Adw.Bin):
         if success:
             self.main_window.show_toast(_("Settings saved and applied permanently."))
         else:
-            # Informa que salvou, mas falhou ao aplicar ao vivo.
+            # says it saved but failed to apply live.
             self.main_window.show_toast(_("Settings saved, but failed to apply live."))
 
     def _on_reload_clicked(self, widget):

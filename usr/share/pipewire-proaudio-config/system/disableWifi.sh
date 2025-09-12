@@ -3,9 +3,9 @@
 # check current status
 check_state() {
   if [[ "$(LANG=C LANGUAGE=C nmcli radio wifi)" == "enabled" ]];then
-    echo "true"
-  elif [[ "$(LANG=C LANGUAGE=C nmcli radio wifi)" == "disabled" ]];then
     echo "false"
+  elif [[ "$(LANG=C LANGUAGE=C nmcli radio wifi)" == "disabled" ]];then
+    echo "true"
   fi
 }
 
