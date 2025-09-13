@@ -251,6 +251,9 @@ class AudioSystemTweaksPage(Adw.Bin):
                     return (True, _("Enabled"))
                 elif output == "false":
                     return (False, _("Disabled"))
+                elif output == "true_disabled":
+                    # Returns a special string state and an explanatory message.
+                    return ("true_disabled", _("Enabled by system configuration (e.g., Real-Time Kernel) and cannot be changed here."))
                 else:
                     msg = _("Unavailable: script returned invalid output.")
                     print(_("Invalid output from script {}: {}").format(script_path, result.stdout.strip()))
@@ -313,7 +316,14 @@ class AudioSystemTweaksPage(Adw.Bin):
             row = switch.get_parent().get_parent()
             status, message = self.check_script_state(script_path)
 
-            if status is None:
+            switch.handler_block_by_func(self.on_switch_changed)
+
+            if status == "true_disabled":
+                # State: Enabled but cannot be changed.
+                row.set_sensitive(False)
+                row.set_tooltip_text(message)
+                switch.set_active(True)
+            elif status is None:
                 row.set_sensitive(False)
                 row.set_tooltip_text(message)
             else:
@@ -322,6 +332,8 @@ class AudioSystemTweaksPage(Adw.Bin):
                 switch.handler_block_by_func(self.on_switch_changed)
                 switch.set_active(status)
                 switch.handler_unblock_by_func(self.on_switch_changed)
+
+            switch.handler_unblock_by_func(self.on_switch_changed)
             print(_("Switch {} synchronized: {}").format(os.path.basename(script_path), status))
 
         # Sync all status indicators
