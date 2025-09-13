@@ -265,6 +265,10 @@ msgstr "有効化されました"
 msgid "Disabled"
 msgstr "無効"
 # 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/audio_system_tweaks_page.py, line: 256
+msgid "Enabled by system configuration (e.g., Real-Time Kernel) and cannot be changed here."
+msgstr "システム構成によって有効化されており（例：リアルタイムカーネル）、ここでは変更できません。"
+# 
 # File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 305
 msgid "Unavailable: script returned invalid output."
 msgstr "利用できません: スクリプトが無効な出力を返しました。"

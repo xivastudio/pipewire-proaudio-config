@@ -298,7 +298,7 @@ msgstr  ""
 
 #
 # File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/audio_system_tweaks_page.py, line: 240
-# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/audio_system_tweaks_page.py, line: 271
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/audio_system_tweaks_page.py, line: 274
 msgid   "Script not found: {}"
 msgstr  ""
 
@@ -313,77 +313,83 @@ msgid   "Disabled"
 msgstr  ""
 
 #
-# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/audio_system_tweaks_page.py, line: 255
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/audio_system_tweaks_page.py, line: 256
+msgid   "Enabled by system configuration (e.g., Real-Time Kernel) and cannot "
+        "be changed here."
+msgstr  ""
+
+#
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/audio_system_tweaks_page.py, line: 258
 msgid   "Unavailable: script returned invalid output."
 msgstr  ""
 
 #
-# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/audio_system_tweaks_page.py, line: 256
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/audio_system_tweaks_page.py, line: 259
 msgid   "Invalid output from script {}: {}"
 msgstr  ""
 
 #
-# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/audio_system_tweaks_page.py, line: 259
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/audio_system_tweaks_page.py, line: 262
 msgid   "Unavailable: script returned an error."
 msgstr  ""
 
 #
-# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/audio_system_tweaks_page.py, line: 260
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/audio_system_tweaks_page.py, line: 263
 msgid   "Error checking state: {}"
 msgstr  ""
 
 #
-# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/audio_system_tweaks_page.py, line: 263
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/audio_system_tweaks_page.py, line: 266
 msgid   "Unavailable: failed to run script."
 msgstr  ""
 
 #
-# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/audio_system_tweaks_page.py, line: 264
-# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/audio_system_tweaks_page.py, line: 305
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/audio_system_tweaks_page.py, line: 267
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/audio_system_tweaks_page.py, line: 308
 msgid   "Error running script {}: {}"
 msgstr  ""
 
 #
-# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/audio_system_tweaks_page.py, line: 283
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/audio_system_tweaks_page.py, line: 286
 msgid   "State changed successfully"
 msgstr  ""
 
 #
-# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/audio_system_tweaks_page.py, line: 285
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/audio_system_tweaks_page.py, line: 288
 msgid   "Script output: {}"
 msgstr  ""
 
 #
-# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/audio_system_tweaks_page.py, line: 289
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/audio_system_tweaks_page.py, line: 292
 msgid   "Script failed with exit code: {}"
 msgstr  ""
 
 #
-# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/audio_system_tweaks_page.py, line: 301
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/audio_system_tweaks_page.py, line: 304
 msgid   "Script timeout: {}"
 msgstr  ""
 
 #
-# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/audio_system_tweaks_page.py, line: 325
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/audio_system_tweaks_page.py, line: 337
 msgid   "Switch {} synchronized: {}"
 msgstr  ""
 
 #
-# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/audio_system_tweaks_page.py, line: 348
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/audio_system_tweaks_page.py, line: 360
 msgid   "Indicator {} synchronized: {}"
 msgstr  ""
 
 #
-# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/audio_system_tweaks_page.py, line: 356
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/audio_system_tweaks_page.py, line: 368
 msgid   "Changing {} to {}"
 msgstr  ""
 
 #
-# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/audio_system_tweaks_page.py, line: 369
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/audio_system_tweaks_page.py, line: 381
 msgid   "ERROR: Failed to change {} to {}"
 msgstr  ""
 
 #
-# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/audio_system_tweaks_page.py, line: 370
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/audio_system_tweaks_page.py, line: 382
 msgid   "Failed to change setting: {}"
 msgstr  ""

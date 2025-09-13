@@ -262,6 +262,10 @@ msgstr "已启用"
 msgid "Disabled"
 msgstr "禁用"
 # 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/audio_system_tweaks_page.py, line: 256
+msgid "Enabled by system configuration (e.g., Real-Time Kernel) and cannot be changed here."
+msgstr "由系统配置启用（例如，实时内核），无法在此更改。"
+# 
 # File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 305
 msgid "Unavailable: script returned invalid output."
 msgstr "不可用：脚本返回无效输出。"

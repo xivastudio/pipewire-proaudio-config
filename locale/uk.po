@@ -271,6 +271,10 @@ msgstr "Увімкнено"
 msgid "Disabled"
 msgstr "Вимкнено"
 # 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/audio_system_tweaks_page.py, line: 256
+msgid "Enabled by system configuration (e.g., Real-Time Kernel) and cannot be changed here."
+msgstr "Увімкнено системною конфігурацією (наприклад, ядро реального часу) і не може бути змінено тут."
+# 
 # File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 305
 msgid "Unavailable: script returned invalid output."
 msgstr "Недоступно: скрипт повернув недійсний вихід."

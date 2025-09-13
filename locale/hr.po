@@ -270,6 +270,10 @@ msgstr "Omogućeno"
 msgid "Disabled"
 msgstr "Onemogućeno"
 # 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/audio_system_tweaks_page.py, line: 256
+msgid "Enabled by system configuration (e.g., Real-Time Kernel) and cannot be changed here."
+msgstr "Omogućeno konfiguracijom sustava (npr. Real-Time Kernel) i ne može se promijeniti ovdje."
+# 
 # File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 305
 msgid "Unavailable: script returned invalid output."
 msgstr "Nedostupno: skripta je vratila nevažeći izlaz."

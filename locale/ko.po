@@ -263,6 +263,10 @@ msgstr "활성화됨"
 msgid "Disabled"
 msgstr "비활성화됨"
 # 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/audio_system_tweaks_page.py, line: 256
+msgid "Enabled by system configuration (e.g., Real-Time Kernel) and cannot be changed here."
+msgstr "시스템 구성(예: 실시간 커널)에 의해 활성화되었으며 여기에서 변경할 수 없습니다."
+# 
 # File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 305
 msgid "Unavailable: script returned invalid output."
 msgstr "사용할 수 없음: 스크립트가 잘못된 출력을 반환했습니다."

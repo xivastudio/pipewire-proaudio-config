@@ -275,6 +275,12 @@ msgstr "Habilitado"
 msgid "Disabled"
 msgstr "Deshabilitado"
 # 
+# File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/audio_system_tweaks_page.py, line: 256
+msgid "Enabled by system configuration (e.g., Real-Time Kernel) and cannot be changed here."
+msgstr ""
+"Habilitado por la configuración del sistema (por ejemplo, Núcleo en Tiempo Real) y no se puede "
+"cambiar aquí."
+# 
 # File: pipewire-proaudio-config/usr/share/pipewire-proaudio-config/main.py, line: 305
 msgid "Unavailable: script returned invalid output."
 msgstr "No disponible: el script devolvió una salida no válida."
