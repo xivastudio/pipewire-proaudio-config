@@ -2,10 +2,22 @@
 
 # check current status
 check_state() {
-  if [[ -e "/proc/config.gz" ]] && [[ -n "$(zgrep CONFIG_PREEMPT_RT=y /proc/config.gz)" ]] || [[ -e "/boot/config-$(uname -r)" ]] && [[ -n "$(grep CONFIG_PREEMPT_RT=y /boot/config-$(uname -r))" ]];then
-    echo ""
-  elif [[ -e "/proc/config.gz" ]] && [[ -n "$(zgrep CONFIG_IRQ_FORCED_THREADING=y /proc/config.gz)" ]] || [[ -e "/boot/config-$(uname -r)" ]] && [[ -n "$(grep CONFIG_IRQ_FORCED_THREADING=y /boot/config-$(uname -r))" ]];then
-    if [[ -n "$(grep "threadirqs" /proc/cmdline)" ]];then
+  if [[ -e "/proc/config.gz" ]];then
+    if [[ "$(zgrep -e CONFIG_IRQ_FORCED_THREADING=y -e CONFIG_PREEMPT_RT=y /proc/config.gz | wc -l)" -eq "2" ]];then
+      echo "true_disabled"
+    elif [[ "$(zgrep -e CONFIG_IRQ_FORCED_THREADING=y -e CONFIG_PREEMPT_RT=y /proc/config.gz | wc -l)" -eq "0" ]];then
+      echo ""
+    elif [[ -n "$(zgrep -e CONFIG_IRQ_FORCED_THREADING=y /proc/config.gz)" ]] && [[ -n "$(grep "threadirqs" /proc/cmdline)" ]];then
+      echo "true"
+    else
+      echo "false"
+    fi
+  elif [[ -e "/boot/config-$(uname -r)" ]];then
+    if [[ "$(grep -e CONFIG_IRQ_FORCED_THREADING=y -e CONFIG_PREEMPT_RT=y /boot/config-$(uname -r) | wc -l )" -eq "2" ]];then
+      echo "true_disabled"
+    elif [[ "$(grep -e CONFIG_IRQ_FORCED_THREADING=y -e CONFIG_PREEMPT_RT=y /boot/config-$(uname -r) | wc -l )" -eq "0" ]];then
+      echo ""
+    elif [[ -n "$(grep CONFIG_IRQ_FORCED_THREADING=y /boot/config-$(uname -r))" ]] && [[ -n "$(grep "threadirqs" /proc/cmdline)" ]];then
       echo "true"
     else
       echo "false"
