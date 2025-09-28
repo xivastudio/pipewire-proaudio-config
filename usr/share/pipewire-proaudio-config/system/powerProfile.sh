@@ -1,19 +1,26 @@
 #!/bin/bash
 
+# sets whether it is running in flatpak
+if [ -n "$FLATPAK_ID" ]; then
+  exec='flatpak-spawn --host'
+else
+  exec=
+fi
+
 # check current status
 check_state() {
-  if which powerprofilesctl >/dev/null 2>&1; then
-    if [[ -z "$(grep performance <<< $(powerprofilesctl list))" ]];then
+  if $exec which powerprofilesctl >/dev/null 2>&1; then
+    if [[ -z "$(grep performance <<< $($exec powerprofilesctl list))" ]];then
       echo ""
-    elif [[ "$(powerprofilesctl get)" == "performance" ]];then
+    elif [[ "$($exec powerprofilesctl get)" == "performance" ]];then
       echo "true"
     else
       echo "false"
     fi
-  elif which tuned-adm >/dev/null 2>&1; then
-    if [[ -z "$(grep throughput-performance <<< $(tuned-adm list))" ]];then
+  elif $exec which tuned-adm >/dev/null 2>&1; then
+    if [[ -z "$(grep throughput-performance <<< $($exec tuned-adm list))" ]];then
       echo ""
-    elif [[ "$(tuned-adm active | awk -F ': ' '{print $2}')" == "throughput-performance" ]];then
+    elif [[ "$($exec tuned-adm active | awk -F ': ' '{print $2}')" == "throughput-performance" ]];then
       echo "true"
     else
       echo "false"
@@ -25,17 +32,17 @@ check_state() {
 toggle_state() {
   new_state="$1"
   if [[ "$new_state" == "true" ]];then
-    if which powerprofilesctl >/dev/null 2>&1; then
-      powerprofilesctl set performance
-    elif which tuned-adm >/dev/null 2>&1; then
-      tuned-adm profile throughput-performance
+    if $exec which powerprofilesctl >/dev/null 2>&1; then
+      $exec powerprofilesctl set performance
+    elif $exec which tuned-adm >/dev/null 2>&1; then
+      $exec tuned-adm profile throughput-performance
     fi
     exitCode=$?
   else
-    if which powerprofilesctl >/dev/null 2>&1; then
-      powerprofilesctl set balanced
-    elif which tuned-adm >/dev/null 2>&1; then
-      tuned-adm profile balanced
+    if $exec which powerprofilesctl >/dev/null 2>&1; then
+      $exec powerprofilesctl set balanced
+    elif $exec which tuned-adm >/dev/null 2>&1; then
+      $exec tuned-adm profile balanced
     fi
     exitCode=$?
   fi
