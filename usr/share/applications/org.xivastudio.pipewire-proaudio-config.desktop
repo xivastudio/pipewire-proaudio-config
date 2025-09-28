@@ -1,7 +1,7 @@
 [Desktop Entry]
 Categories=Audio;AudioVideo;Midi;
 Exec=pipewire-proaudio-config
-Icon=pipewire-proaudio-config
+Icon=org.xivastudio.pipewire-proaudio-config
 Name=PipeWire ProAudio Config
 StartupWMClass=org.xivastudio.pipewire-proaudio-config
 Name[bg]=Конфигурация на PipeWire ProAudio
