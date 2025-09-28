@@ -2,7 +2,7 @@
 
 # sets whether it is running in flatpak
 if [ -n "$FLATPAK_ID" ]; then
-  exec='flatpak-spawn --host'
+  exec='flatpak-spawn --host --directory=/'
 else
   exec=
 fi

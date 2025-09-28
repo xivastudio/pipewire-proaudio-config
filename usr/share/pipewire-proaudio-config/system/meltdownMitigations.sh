@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# sets whether it is running in flatpak
+if [ -n "$FLATPAK_ID" ]; then
+  exec='flatpak-spawn --host --directory=/'
+else
+  exec=
+fi
+
 # check current status
 check_state() {
   if [[ -n "$(grep "mitigations=off" /proc/cmdline)" ]];then
@@ -13,10 +20,10 @@ check_state() {
 toggle_state() {
   new_state="$1"
   if [[ "$new_state" == "true" ]];then
-    pkexec $PWD/system/meltdownMitigationsRun.sh "enable" "$USER" "$DISPLAY" "$XAUTHORITY" "$DBUS_SESSION_BUS_ADDRESS" "$LANG" "$LANGUAGE"
+    $exec pkexec $PWD/system/meltdownMitigationsRun.sh "enable" "$USER" "$DISPLAY" "$XAUTHORITY" "$DBUS_SESSION_BUS_ADDRESS" "$LANG" "$LANGUAGE"
     exitCode=$?
   else
-    pkexec $PWD/system/meltdownMitigationsRun.sh "disable" "$USER" "$DISPLAY" "$XAUTHORITY" "$DBUS_SESSION_BUS_ADDRESS" "$LANG" "$LANGUAGE"
+    $exec pkexec $PWD/system/meltdownMitigationsRun.sh "disable" "$USER" "$DISPLAY" "$XAUTHORITY" "$DBUS_SESSION_BUS_ADDRESS" "$LANG" "$LANGUAGE"
     exitCode=$?
   fi
   exit $exitCode

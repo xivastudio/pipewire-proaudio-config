@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# sets whether it is running in flatpak
+if [ -n "$FLATPAK_ID" ]; then
+  exec='flatpak-spawn --host --directory=/'
+else
+  exec=
+fi
+
 # check current status
 check_state() {
   if [[ "$(cat /sys/devices/system/cpu/smt/control)" != "on" ]] && [[ "$(cat /sys/devices/system/cpu/smt/control)" != "off" ]];then
@@ -15,10 +22,10 @@ check_state() {
 toggle_state() {
   new_state="$1"
   if [[ "$new_state" == "true" ]];then
-    echo off | pkexec tee /sys/devices/system/cpu/smt/control
+    echo off | $exec pkexec tee /sys/devices/system/cpu/smt/control
     exitCode=$?
   else
-    echo on | pkexec tee /sys/devices/system/cpu/smt/control
+    echo on | $exec pkexec tee /sys/devices/system/cpu/smt/control
     exitCode=$?
   fi
   exit $exitCode

@@ -1,8 +1,15 @@
 #!/bin/bash
 
+# sets whether it is running in flatpak
+if [ -n "$FLATPAK_ID" ]; then
+  exec='flatpak-spawn --host --directory=/'
+else
+  exec=
+fi
+
 # check current status
 check_state() {
-  bluetoothState="$(LANG=C LANGUAGE=C timeout 0.1 bluetoothctl show | grep "Powered:" | awk '{print $2}')"
+  bluetoothState="$(LANG=C LANGUAGE=C timeout 0.1 $exec bluetoothctl show | grep "Powered:" | $exec awk '{print $2}')"
   if [[ "$bluetoothState" == "yes" ]];then
     echo "false"
   elif [[ "$bluetoothState" == "no" ]];then
@@ -14,10 +21,10 @@ check_state() {
 toggle_state() {
   new_state="$1"
   if [[ "$new_state" == "true" ]];then
-    timeout 2 bluetoothctl power on
+    timeout 2 $exec bluetoothctl power on
     exitCode=$?
   else
-    timeout 2 bluetoothctl power off
+    timeout 2 $exec bluetoothctl power off
     exitCode=$?
   fi
   exit $exitCode

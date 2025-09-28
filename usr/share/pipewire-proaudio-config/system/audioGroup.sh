@@ -1,8 +1,15 @@
 #!/bin/bash
 
+# sets whether it is running in flatpak
+if [ -n "$FLATPAK_ID" ]; then
+  exec='flatpak-spawn --host --directory=/'
+else
+  exec=
+fi
+
 # check current status
 check_state() {
-  if [[ -n "$(grep audio <<< $(groups $(whoami)))" ]];then
+  if [[ -n "$(grep audio <<< $($exec groups $(whoami)))" ]];then
     echo "true"
   else
     echo "false"
@@ -14,12 +21,12 @@ toggle_state() {
   new_state="$1"
   if [[ "$new_state" == "true" ]];then
     if [[ -z "$(getent group audio)" ]];then
-      pkexec groupadd audio
+      $exec pkexec groupadd audio
     fi
-    pkexec usermod -aG audio $(whoami)
+    $exec pkexec usermod -aG audio $(whoami)
     exitCode=$?
   else
-    pkexec gpasswd -d $(whoami) audio
+    $exec pkexec gpasswd -d $(whoami) audio
     exitCode=$?
   fi
   exit $exitCode
